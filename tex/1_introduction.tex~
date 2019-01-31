@@ -1,0 +1,36 @@
+\chapter{Introduction}
+\label{chap:intro}
+
+\section{Motivation}
+
+Establishing finite generation of cohomology rings is a powerful result in representation theory which links cohomology theory with commutative algebra and algebraic geometry. For example, Evens \cite{Evens-cohomology-ring} and Venkov \cite{MR0108788} each independently proved that the cohomology ring of a finite group is finitely generated. This result was used by Quillen \cite{MR0298694}, Carlson \cite{MR723070}, Chouinard \cite{MR0401943}, and Alperin-Evens \cite{MR621284} to study the cohomology variety of the finite group. This allowed those listed, among others, to use techniques from classical algebraic geometry in the study of representation theory of finite groups. Similar work has been carried out in other contexts; by Friedlander-Parshall \cite{FP-unipotent,MR860682} for restricted Lie algebras, and by Friedlander-Suslin \cite{MR1427618} for finite-dimensional cocommutative Hopf algebras.
+
+Relative cohomology, as defined by Hochschild \cite{hochschild} is less understood than ordinary cohomology. For instance, the cohomology ring of a finite group relative to a subgroup need not be finitely generated. Indeed, Brown \cite{MR1310744} provided an example of a finite group whose relative cohomology is infinitely generated. Surprisingly, in the case $\g = \even{\g} \oplus \odd{\g}$ is a (finite-dimensional) classical Lie superalgebra, the cohomology ring of $\g$ relative to $\even{\g}$ is always finitely generated. Specifically, Boe-Kujawa-Nakano \cite{BKN-1} realized this relative cohomology ring as the invariants of a polynomial ring under the action of a reductive group. In fact, in the case of Lie superalgebras, ordinary cohomology is often times finite-dimensional as a vector space, as proved by Fuks-Leites \cite{fuks1984cohomology}
+% \cite{MR1450424}
+. This implies relative cohomology rings carry more representation theoretic information than their ordinary counterparts. Furthermore, Boe-Kujawa-Nakano \cite{BKN-1} demonstrated the atypicality of a supermodule -- a combinatorial invariant defined by Kac-Wakimoto \cite{MR1327543} -- is realized as the dimension of the support variety of that module. The geometrization of combinatorial ideas makes support variety theory useful and powerful.
+
+One of the main results of this paper asserts that for a classical Lie superalgebra, cohomology rings relative to even subalgebras are finitely-generated over $\CC$, and the relative cohomology of a finite-dimensional module is a Noetherian module for this ring. In proving the main theorem, a spectral sequence is constructed  which relates relative Lie algebra cohomology to odd degree elements of the Lie superalgebra in an interesting way. The main theorem paves the way to define and investigate support varieties for supermodules relative to a broader class of subalgebras. The importance of this result is apparent in that cohomology relative to an even subalgebra provides a middle ground between the case of absolute cohomology of Fuks-Leites and cohomology relative to $\even{\g}$ of \cite{BKN-1}.
+
+\section{Overview of Dissertation}
+\label{sec:overview}
+
+\TODO{Revamp}{This was written for my paper. Once dissertation is completed I will rework this for the contents of the dissertation.}
+
+Let $\g = \even{\g} \oplus \odd{\g}$ be a Lie superalgebra, $\a \leq \even{\g}$ a subalgebra, and $M$ a finite-dimensional $\g$-module. The theory of relative cohomology \cite{hochschild} can be used to define relative cohomology groups $\H^n(\g,\a;M)$, which may be viewed as relative derived functors of $\Hom_{(\g,\a)}(\CC,-)$. In \cite[Theorem 2.5.2]{BKN-1} it was shown that when $\g$ is a classical Lie superalgebra and $\a = \even{\g}$, the cohomology ring $\H^\bullet(\g,\even{\g};\CC)$ is the subring $S(\odd{\g}^*)^{\even{G}}$ of invariants under a reductive group action, and is thus finitely generated over $\CC$. This paper's main result extends this work to arbitrary subalgebras $\a \leq \even{\g}$.
+
+\begin{maintheorem}
+  Let $\g = \even{\g} \oplus \odd{\g}$ be a classical Lie superalgebra, and $\a \leq \even{\g}$ an (even) subalgebra, and $M$ a $\g$-module.
+  \begin{enumerate}[\indent\rm (a)]
+    \item There is a spectral sequence $\{E_r^{p,q}\}$ which computes cohomology and satisfies
+  \[
+    E_2^{p,q}(M) \cong \H^p(\g,\even{\g};M) \otimes \H^q(\even{\g},\a;\CC) \Rightarrow \H^{p+q}(\g,\a;M)
+  \]
+  For $1 \leq r \leq \infty$, $E_r^{\bullet,\bullet}(M)$ is a module for $E_2^{\bullet,\bullet}(\CC)$. When $M$ is finite-dimensional, $E_2^{\bullet,\bullet}(M)$ is a Noetherian $E_2^{\bullet,\bullet}(\CC)$-module.
+    \item Moreover, the cohomology ring $\H^\bullet(\g,\a;\CC)$ is a finitely-generated $\CC$-algebra.
+  \end{enumerate}
+\end{maintheorem}
+
+The paper is outlined as follows. In Section \ref{sec:prelims}, Lie superalgebras, modules for Lie superalgebras, and cohomology of Lie superalgebras are defined. The pace is brisk and the interested reader will find a more thorough overview in \cite{BKN-1,Kac}. In Section \ref{sec:spectral-sequence} the author establishes finite generation of the relative cohomology ring. To do so, a first-quadrant spectral sequence as described above is constructed, similar to that of Hochschild and Serre \cite{HS-53}, pages are identified, and a standard argument is used. Additionally, the edge homomorphism of the $E_2^{\bullet,0} \to E_\infty^{\bullet,0}$ is identified as restriction, making $\H^\bullet(\g,\a;\CC)$ an integral extension of a homomorphic image of $\H^\bullet(\g,\even{\g};\CC)$. Equipped with the spectral sequence of the previous section, we devote Section \ref{sec:structure} to investigating the structure of these relative cohomology rings. For the relative cohomology ring to be Cohen-Macaulay, it is shown to be sufficient that the spectral sequence of Section \ref{sec:spectral-sequence} collapse at the $E_2$ page. This is used to compute a broad class of examples. Finally, we are in a position to systematically study support varieties for Lie superalgebras, which we do in Section \ref{sec:support-varieties}. In this section, support varieties are defined and several basic properties are stated before addressing the more difficult questions of realizability and connectedness. Our realizability theorem demonstrates a naturality between support varieties for $(\g,\even{\g})$ and those for $(\g,\a)$.
+
+The author would like to thank his advisor, Dr Daniel Nakano for much motivation and support, and Dr William Graham for helpful conversations involving spectral sequences and Lie algebra cohomology. This work was completed as a part of the author's dissertation at University of Georgia, and was partially supported by the Research and Training Group in Algebraic Geometry, Algebra and Number Theory grant DMS-1344994 funded by the National Science Foundation.
+

@@ -1,0 +1,325 @@
+\chapter{Finite Generation of Relative Cohomology}
+\label{ch:finite-generation}
+
+
+\section{Motivation}
+
+In this chapter, we will prove the following theorem.
+
+\begin{theorem}
+  \label{thm:fg}
+  Let $\g = \even{\g} \oplus \odd{\g}$ be a classical Lie superalgebra, and $\a \leq \even{\g}$ an (even) subalgebra, and $M$ a $\g$-module.
+  \begin{enumerate}[\indent\rm (a)]
+    \item There is a spectral sequence $\{E_r^{p,q}\}$ which computes cohomology and satisfies
+  \[
+    E_2^{p,q}(M) \cong \H^p(\g,\even{\g};M) \otimes \H^q(\even{\g},\a;\CC) \Rightarrow \H^{p+q}(\g,\a;M)
+  \]
+  For $1 \leq r \leq \infty$, $E_r^{\bullet,\bullet}(M)$ is a module for $E_2^{\bullet,\bullet}(\CC)$. When $M$ is finite-dimensional, $E_2^{\bullet,\bullet}(M)$ is a Noetherian $E_2^{\bullet,\bullet}(\CC)$-module.
+    \item Moreover, the cohomology ring $\H^\bullet(\g,\a;\CC)$ is a finitely-generated $\CC$-algebra.
+  \end{enumerate}
+\end{theorem}
+
+\section{Filtration on Cochains}
+\label{sec:filt-cochains}
+
+Let $\g$ be a classical Lie superalgebra and $\a \leq \g$ any Lie subsuperalgebra. Recall the cochains are defined by
+\[
+    C^n(\g,\a;M) = \Hom_\a \left( \superext{n}(\g/\a),M \right)
+\]
+Because $\a \leq \g$ is a subsuperalgebra, the equality
+\[
+  \g/\a \cong \even{\g} / \even{\a} \oplus \odd{\g}/\odd{\a}
+\]
+holds, allowing the cochains to be decomposed (as $\a$-modules) as follows.
+\begin{align} \begin{split} \label{eq:decompose-cochains}
+  C^n(\g,\a;M)
+  &= \Hom_\a \left( \superext{n}(\g/\a),M \right)\\
+  &= \Hom_\a \left( \superext{n}\left(\even{\g}/\even{\a} \oplus \odd{\g}/\odd{\a}\right),M \right)\\
+  &= \Hom_\a \left( \bigoplus_{i+j = n} \superext{i}\left(\even{\g}/\even{\a}\right) \otimes \superext{j}\left(\odd{\g}/\odd{\a}\right), M \right) \\
+  &= \bigoplus_{i+j=n} \Hom_\a\left( \ext{i}\left(\even{\g}/\even{\a}\right) \otimes S^j\left(\odd{\g}/\odd{\a}\right), M  \right)\\
+  &= \bigoplus_{i+j=n} \Hom_\a\left( \ext{i}\left(\even{\g}/\even{\a}\right), S^{j}\left(\odd{\g}/\odd{\a}\right) \otimes M  \right) \\
+  &= \bigoplus_{i+j=n} C^i\left(\even{\g},\even{\a}; S^j(\odd{\g}/\odd{\a})\otimes M\right)
+\end{split} \end{align}
+Equation \ref{eq:decompose-cochains} expresses arbitrary superalternating functions as sums of superalternating functions with $i$ arguments coming from $\even{\g}/\even{\a}$, and $j$ arguments coming from $\odd{\g}/\odd{\a}$.
+
+Our filtration is inspired by that of \cite{HS-53}, and corresponds to limiting the number of arguments that may come from $\even{\g}/\even{\a}$. Explicitly, define
+\begin{equation}
+  \label{eq:define-filtration}
+  C^n(\g,\a;M)_{(p)} = \bigoplus_{\substack{i+j=n \\ i \leq n-p}} C^i\left(\even{\g},\even{\a}; S^j(\odd{\g}/\odd{\a})\otimes M\right)
+\end{equation}
+This defines a descending filtration
+\begin{align}\begin{split}\label{eq:desc-filt}
+    C^n(\g,\a;M) = C^n(\g,\a;M)_{(0)} &\supseteq  C^n(\g,\a;M)_{(1)} \supseteq \ldots \\
+    &\ldots \supseteq C^n(\g,\a;M)_{(n)}  \supseteq C^n(\g,\a;M)_{(n+1)} = 0
+ \end{split}
+\end{align}
+
+This filtration satisfies some basic desired properties.
+
+\begin{proposition} \label{prop:grading-properties}
+  Let $\g = \even{\g} \oplus \odd{\g}$ be a Lie superalgebra, $\a \leq \even{\g}$ an even subalgebra, $M$ a $\g$-module, and $C^n(\g,\a;M)_{(p)}$ the filtration defined in Equation \ref{eq:define-filtration}.
+  \begin{enumerate}[\indent\rm (a)]
+  \item This grading respects the differential, i.e., $d(C^n(\g,\a;M)_{(p)}) \subseteq C^{n+1}(\g,\a;M)_{(p)}$, and thus $C^\bullet(\g,\a;M)_{(p)}$ is a subcomplex of $C^\bullet(\g,\a;M)$ for all $p$.
+  \item $C^n(\g,\a;M)_{(p)}$ is an $\a$-submodule of $C^n(\g,\a;M)$, so $C^\bullet(\g,\a;M)_{(p)}$ is a subcomplex of $\a$-modules.
+  \item The filtration is exhaustive, i.e., $C^\bullet(\g,\a;M)_{(0)} = C^\bullet(\g,\a;M)$ and $\bigcap_{p\geq 0} C^\bullet(\g,\a;M)_{(p)} = 0$.
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  \begin{enumerate}[(a)]
+  \item Let $f \in C^n(\g,\a;M)_{(p)}$. This means $f$ vanishes when more than $n-p$ arguments belong to $\even{\g}/\a$. We wish to show that $df \in C^{n+1}(\g,\a;M)_{(p)}$, i.e., that $df$ vanishes when more than $n-p+1$ arguments belong to $\even{\g}/\a$. Let $\alpha_0, \ldots , \alpha_{n-p+1} \in \even{\g}/\a$, while $\beta_{n-p+2},\ldots,\beta_n \in \odd{\g}$. Plugging these into the coboundary formula
+    \begin{align*}
+      df(\alpha_0 \wedge \ldots \wedge \beta_n)
+      &= \sum_{0 \leq i \leq n-p+1} (-1)^{\tau_i(-)} \alpha_i . f(\alpha_0 \wedge \ldots \hat \alpha_i \ldots \wedge \beta_n) \\
+      & + \sum_{n-p+2 \leq i \leq n} (-1)^{\tau_i(-)} \beta_i .f(\alpha_0 \wedge \ldots \hat \beta_i \ldots \wedge \beta_n) \\
+      &+ \sum_{0 \leq i < j \leq n-p+1 } (-1)^{\sigma_{i,j}(-)} f([\alpha_i,\alpha_j] \wedge \alpha_0 \ldots \hat \alpha_i \ldots \hat \alpha_j \ldots \wedge \beta_n) \\
+      & + \sum_{\substack{0 \leq i \leq n-p+1 \\ n-p+2 \leq j \leq n}} (-1)^{\sigma_{i,j}(-)} f([\alpha_i,\beta_j]\wedge \alpha_0 \ldots \hat \alpha_i \ldots \hat \beta_j \ldots \wedge \beta_n) \\
+      &+ \sum_{n-p+2 \leq i < j \leq n} (-1)^{\sigma_{i,j}(-)} f([\beta_i,\beta_j] \wedge \alpha_0 \ldots \hat \beta_i \ldots \hat \beta_j \ldots \wedge \beta_n)
+    \end{align*}
+    Looking at each line of the previous equation, notice that $f$ takes in, respectively, $n-p+1$, $n-p+2$, $n-p+1$, $n-p+2$, and $n-p+3$ arguments lying in $\even{\g}/\a$. Thus each term in each summation individually vanishes. Thus we conclude $df \in C^{n+1}(\g,\a;M)_{(p)}$.
+  \item Let $x \in \a$, $f \in C^n(\g,\a;M)_{(p)}$. Thus $f(\w_0 \wedge \ldots \w_{n-1})$ vanishes when $n-p+1$ of the $\w_i$ belong to $\a$. writing out the definition of $(x.f)(\w_0\wedge\ldots\wedge\w_{n-1})$ we realize that each term vanishes when $n-p+1$ of the $\w_i$ belong to $\a$, and thus $x.f \in C^n(\g,\a;M)_{(p)}$.
+  \item This follows from writing out the definitions and noting $C^n(\g,\a;M)_{(n+1)} = 0$
+  \end{enumerate}
+\end{proof}
+Because of the properties established in Proposition \ref{prop:grading-properties}, 
+\begin{equation}
+  \label{eq:spectral-sequence}
+  E_{r}^{p,q} \Rightarrow \H\left(C^\bullet(\g,\a;M)\right) = \H^\bullet(\g,\a;\CC)
+\end{equation}
+which computes cohomology.
+\TODO{Decide}{Do I need a chapter on spectral sequences?}
+
+\section{Pages of the Spectral Sequence}
+\label{sec:pages}
+
+This section is devoted to investigating the pages of the spectral sequence defined by Equation \ref{eq:spectral-sequence}, and the necessary information is summarized in the following lemma.
+
+\begin{proposition} \label{prop:pages}
+  The first three pages of the spectral sequence associated to the filtration of Equation \ref{eq:spectral-sequence} may be identified as follows.
+  \begin{enumerate}[\indent\rm (a)]
+    \itemsep.5em
+  \item $E_0^{p,q} \cong C^q\left(\even{\g},\a;\Hom_\CC \left(\superext{p}(\g/\even{\g}),M\right)\right)$,
+  \item $E_1^{p,q} \cong \H^q\left(\even{\g},\a;\Hom_\CC\left(\superext{p}(\g/\even{\g}),M\right)\right)$,
+  \item $E_2^{p,q} \cong \H^p(\g,\even{\g};M) \otimes \H^q(\even{\g},\a;\CC)$.
+  \end{enumerate}
+\end{proposition}
+
+The proof of Proposition \ref{prop:pages} requires the following lemma.
+
+\begin{lemma} \label{lemma:vanishing}
+  Let $\even{\g}$ be a reductive Lie algebra, $M$ be a finite-dimensional semisimple $\even{\g}$-module such that $M^{\even{\g}} = 0$. Then $\H^n(\even{\g},\a;M) = 0$ for all $n \geq 0$.
+\end{lemma}
+\begin{proof}[Proof of Lemma \ref{lemma:vanishing}]
+  Suppose $M$ is simple and that $n \geq 0$. The group $Z^n(\even{\g},\a;M) \subseteq C^n(\even{\g},\a;M) \subseteq C^n(\even{\g};M)$ is semisimple. The group $d(C^{n-1}(\even{\g},\a;M))$ is a submodule of $Z^n(\even{\g},\a;M)$, and as such there exists a $\even{\g}$-module complement $V$ so that $Z^n(\even{\g},\a;M) = d(C^{n-1}(\even{\g},\a;M)) \oplus V$. We notice that $\even{\g} . Z^n(\even{\g},\a;M) \subseteq d(C^{n-1}(\even{\g},\a;M))$, meaning $\even{\g} . V = 0$. Thus it suffices to show that every cocycle which is annihilated by $\even{\g}$ is a coboundary.
+
+  Since $\even{\g}$ is reductive we may write $\even{\g} = [\even{\g},\even{\g}] \oplus \z$ where $\z$ denotes the center of $\even{\g}$. Since $M$ is simple either $\z . M = 0$ or no non-zero element of $M$ is annihilated by $Z$. Let $f$ be a cocycle which is annihilated by $\even{\g}$, let $z \in \z$, and let $\w_1,\ldots,\w_n \in \even{\g}$. Then $0 = (z.f)(\w_1 \wedge \ldots \wedge \w_n) = z. f(\w_1 \wedge \ldots \wedge \w_n)$. Thus if $\z.M \neq 0$, it follows that $f = 0$. Now we may suppose $\z.M = 0$ and $M \neq 0$.
+
+  Let $C$ be the annihilator in $\even{\g}$ of $M$, so that $C \supseteq Z$. Since the invariant submodule $M^\even{\g} = 0$, it must be the case $C \neq \even{\g}$. Now $C \cap [\even{\g},\even{\g}]$ is an ideal in the semisimple Lie algebra $[\even{\g},\even{\g}]$, meaning there must be a complementary ideal $S$. Of course, $S$ is a non-zero semisimple ideal of $\even{\g}$, which may be decomposed as $\even{\g} = S \oplus C$. Now $M\res_s$ is simple and the representation of $S$ is one-to-one. Thus the Casimir operator of this representation, $\Gamma$, is an automorphism of $M$ which commutes with all $\even{\g}$-operators on $M$. Furthermore, since $[S,C] = 0$, it is seen that for any relative cocycle $f$, $\Gamma \circ f = dg$ is a coboundary. Hence $f = \Gamma^{-1} \circ dg = d( \Gamma^{-1} \circ g)$ as desired.
+\end{proof}
+
+With Lemma \ref{lemma:vanishing} established, we are now ready to prove Proposition \ref{prop:pages}.
+
+\begin{proof}[Proof of Proposition \ref{prop:pages}]
+    We proceed in steps, identifying the pages in sequence.
+  \begin{enumerate}[(a)]
+\item   By definition, $E_0^{p,q} = C^{p+q}(\g,\a;M)_{(p)}/C^{p+q}(\g,\a;M)_{(p+1)}$. Using the direct sum decomposition of Equation \ref{eq:define-filtration}, this is exactly $C^q\left(\even{\g},\a;\Hom_\CC\left(\superext{p}(\g/\even{\g}),M\right)\right)$.
+\item Functoriality of the isomorphism of (a), i.e., $E_0^{p,\bullet} \cong C^\bullet(\even{\g},\a;\Hom_\CC(S^p(\g/\even{\g}),M))$ as complexes will imply their cohomologies are equal, i.e.,  $E_1^{p,q} \cong \H^q(\even{\g},\a;\Hom_\CC(S^p(\g/\even{\g}),M))$.
+
+  To deduce functoriality of the isomorphism it will suffice to chase the following diagram.
+    \[
+    \begin{tikzcd}
+      C^{p+q}(\g,\a;M)_{(p)} \arrow[r,"d_{(\g,\a)}"] \arrow[d,twoheadrightarrow] & C^{p+q+1}(\g,\a;M)_{(p)} \arrow[d,twoheadrightarrow] \arrow[dd,bend left=35,"\pi"] \\
+      E_0^{p,q} \arrow[r,"d_0"] \arrow[d,"\cong"] & E_0^{p,q+1} \arrow[d,"\cong"] \\
+      C^q(\even{\g},\a;\Hom_\CC(S^p(\odd{\g}),M)) \arrow[r,"d_{(\even{\g},\a)}"] \arrow[uu,bend left=35,"i"] & C^{q+1}(\even{\g},\a;\Hom_\CC(S^p(\odd{\g}),M))
+    \end{tikzcd}
+  \]
+  With section $i$ corresponding to the direct sum decomposition given in Equation \ref{eq:decompose-cochains}. The goal is to show the composition $ \pi \circ d_{(\g,\a)}\circ i = d_{(\even{\g},\a)}$. Since $d_0$ is defined by $d_{(\g,\a)}$, this will show the bottom square commutes, resulting in an isomorphism of complexes.
+
+  Choose $f \in C^q(\even{\g},\a;\Hom_\CC(S^p(\odd{\g}),M))$, and notice that $df$ is given by usual Lie algebra differential
+  \[
+df(\w_0 \wedge \ldots \w_q) = \sum_{i = 0}^q (-1)^i \w_i.f(\w_0 \wedge \ldots \hat \w_i \ldots \wedge \w_q) + \sum_{i < j} (-1)^{i+j}f([\w_i,\w_j] \wedge \w_0 \wedge \ldots \hat \w_i \ldots \hat \w_j \ldots \wedge \w_q)
+  \]
+  Set $\tilde f = i(f) \in C^{p+q}(\g,\a;M)$. The differential is given by the Lie superalgebra cohomology differential, and we arrive at a formula for $d_{(\g,\a)}f(\w_0 \wedge \ldots \wedge \w_{p+q})$. However, because we are taking a quotient $\pi$, it only matters how $d_{(\g,\a)}\tilde{f}$ behaves with $q+1$ even arguments and $p$ odd arguments. Thus we investigate
+  \begin{align*}
+    d_{(\g,\a)}f(\alpha_0\wedge \ldots \wedge \alpha_q \wedge \beta_1 \wedge \ldots \wedge \beta_p) &= \sum_{i = 0}^q (-1)^{\tau_i(-)} \alpha_i.\tilde{f}(\alpha_0\wedge \ldots \hat \alpha_0 \ldots \wedge \alpha_q \wedge \beta_1 \wedge \ldots \wedge \beta_p) \\
+                                                                                                    &+ \sum_{i = q+1}^{p+q} (-1)^{\tau_i(-)} \beta_{i - q}.f(\alpha_0 \wedge \ldots \wedge \alpha_q \wedge \beta_1 \wedge \ldots \hat \beta_{i-q} \ldots \wedge \beta_p) \\
+                                                                                                    &+ \sum_{0 \leq i < j \leq q} (-1)^{\sigma_{i,j}(-)}f([\alpha_i,\alpha_j] \wedge \alpha_0 \ldots \hat \alpha_i \ldots \hat \alpha_j \ldots \beta_p) \\
+                                                                                                    &+ \sum_{\substack{0 \leq i \leq q \\ q+1 \leq j \leq p+q}} (-1)^{\sigma_{i,j}(-)} f([\alpha_i,\beta_{j-q}] \wedge \alpha_0 \ldots \hat \alpha_i \ldots \hat \beta_{j-q} \ldots \beta_p) \\
+    &+ \sum_{q+1 \leq i < j \leq p+q} (-1)^{\sigma_{i,j}(-)} f([\beta_{i-q},\beta_{j-q}]\wedge \alpha_0 \ldots \hat \beta_i \ldots \hat \beta_j \ldots \wedge \beta_p)
+  \end{align*}
+  By construction, $\tilde{f}$ vanishes unless exactly $q$ arguments are even and $p$ arguments are odd. This only occurs in the first, third, and fourth lines of the preceding sum. Working out the relevant signs yields
+\[
+  \tau_i(\underbrace{\bar 0,\ldots,\bar 0}_{q+1},\underbrace{\bar 1,\ldots,\bar 1}_p,\bar f) = i \text{ when } i \leq q
+\]
+\[
+    \sigma_{i,j}(\underbrace{\bar 0,\ldots,\bar 0}_{q+1},\underbrace{\bar 1,\ldots,\bar 1}_p) = \begin{cases}
+      i + j &\text{ if } i,j \leq q \\
+      i - q - 1 &\text{ if } i \leq q, j \geq q+1
+    \end{cases}
+ \]
+So the previous equation for $d_{(\g,\a)}\tilde f$ becomes
+  \begin{align*}
+    d_{(\g,\a)}f(\alpha_0\wedge \ldots \wedge \alpha_q \wedge \beta_1 \wedge \ldots \wedge \beta_p) &= \sum_{i = 0}^q (-1)^{i} \alpha_i.\tilde{f}(\alpha_0\wedge \ldots \hat \alpha_0 \ldots \wedge \alpha_q \wedge \beta_1 \wedge \ldots \wedge \beta_p) \\
+                                                                                                    &+ \sum_{0 \leq i < j \leq q} (-1)^{i+j}f([\alpha_i,\alpha_j] \wedge \alpha_0 \ldots \hat \alpha_i \ldots \hat \alpha_j \ldots \beta_p) \\
+                                                                                                    &- \sum_{\substack{0 \leq i \leq q \\ q+1 \leq j \leq p+q}} (-1)^{i} f(\alpha_0 \ldots \hat \alpha_i \ldots \wedge \alpha_q \wedge [\alpha_i,\beta_{j-q}] \wedge \beta_1\ldots \hat \beta_{j-q} \ldots \beta_p) \\
+  \end{align*}
+  Now if we compute $d_{(\even{\g},\a)}f$, accounting for the action on $\Hom_\CC(S^p(\odd{\g}),M)$, we arrive at the same formula.
+\item Notice first that by semisimplicity $\Hom_\CC(S^n(\g/\even{\g}),M) \cong \Hom_{\even{\g}}(S^n(\g/\even{\g}),M) \oplus V$ where $V$ is some complement with $V^{\even{\g}} = 0$. By the lemma,
+  \[
+    E_1^{p,q} \cong \H^q(\even{\g},\a;\Hom_{\even{\g}}(S^p(\g/\even{\g}),M)) \oplus \H^q(\even{\g},\a;V) = \H^q(\even{\g},\a;\Hom_{\even{\g}}(S^p(\g/\even{\g}),M)).
+  \]
+  Because $\even{\g}$ acts trivially on $\Hom_{\even{\g}}(S^p(\g/\even{\g}),M)$, we may conclude that $E_1^{p,q} \cong \H^q(\even{\g},\a;\CC) \otimes \Hom_{\even{\g}}(S^p(\g/\even{\g}),M)$. This association is functorial, i.e., induces an isomorphism $E_1^{\bullet,q} \cong \H^q(\even{\g},\a;\CC) \otimes \Hom_\CC(S^\bullet(\g/\even{\g}),M)$ as complexes. Therefore, we may conclude that $E_2^{p,q} \cong \H^q(\even{\g},\a;\CC) \otimes \H^p(\g,\even{\g};M)$.
+\end{enumerate}
+This completes the proof of Proposition \ref{prop:pages}.
+\end{proof}
+
+\section{Proof of Finite Generation}
+\label{sec:fg-proof}
+
+Recall the statement of Theorem \ref{thm:fg}:
+
+\TODO{Numbering}{How do I restate a Theorem the right way?}
+
+\begin{theorem}
+  Let $\g = \even{\g} \oplus \odd{\g}$ be a classical Lie superalgebra, and $\a \leq \even{\g}$ an (even) subalgebra, and $M$ a $\g$-module.
+  \begin{enumerate}[\indent\rm (a)]
+    \item There is a spectral sequence $\{E_r^{p,q}\}$ which computes cohomology and satisfies
+  \[
+    E_2^{p,q}(M) \cong \H^p(\g,\even{\g};M) \otimes \H^q(\even{\g},\a;\CC) \Rightarrow \H^{p+q}(\g,\a;M)
+  \]
+  For $1 \leq r \leq \infty$, $E_r^{\bullet,\bullet}(M)$ is a module for $E_2^{\bullet,\bullet}(\CC)$. When $M$ is finite-dimensional, $E_2^{\bullet,\bullet}(M)$ is a Noetherian $E_2^{\bullet,\bullet}(\CC)$-module.
+    \item Moreover, the cohomology ring $\H^\bullet(\g,\a;\CC)$ is a finitely-generated $\CC$-algebra.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  In fact, the all that is left to show is that for $M$ finite-dimensional, $E_2^{\bullet,\bullet}(M)$ is a Noetherian $E_2^{\bullet,\bullet}(\CC)$-module, and that (b) follows from (a). The $E_2^{p,q}(M)$-page identification appears in Proposition \ref{prop:pages} of the previous section.
+
+    As such, let $M$ be a finite-dimensional $\g$-module. $E_2^{\bullet,\bullet}(M)$ is a Noetherian $S^\bullet(\odd{\g}^*)^{\even{G}}$-module via the map
+  \[
+    S^\bullet(\odd{\g}^*)^{\even{G}} \hookrightarrow E_2^{\bullet,0}(\CC) \subseteq E_2^{\bullet,\bullet}(\CC).
+  \]
+  $E_\infty^{\bullet,\bullet}(M)$, being a section of $E_2^{\bullet,\bullet}(M)$ is a Noetherian $S^\bullet(\odd{\g}^*)^{\even{G}}$-module via the map
+  \[
+    S^\bullet(\odd{\g}^*)^{\even{\g}} \to E_\infty^{\bullet,0}(\CC) \subseteq E_\infty^{\bullet,\bullet}(\CC).
+  \]
+  Consequently, $E_\infty^{\bullet,\bullet}(M)$ is a Noetherian $E_\infty^{\bullet,\bullet}(\CC)$-module.
+
+That the cohomology ring is finitely generated follows from this: Because $\CC$ is a Noetherian $\g$-module,  $E_\infty^{\bullet,\bullet}(\CC)$ is a Noetherian $E_\infty^{\bullet,\bullet}(\CC)$-module, however $E_\infty^{\bullet,\bullet}(\CC) = \Gr(\H^\bullet(\g,\a;\CC))$, the associated graded module of the cohomology ring. Because Noetherian associated graded modules come from Noetherian modules, we may conclude that $\H^\bullet(\g,\a;\CC)$ is a Noetherian $\H^\bullet(\g,\a;\CC)$-module, and the cohomology ring is therefore finitely generated.
+\end{proof}
+
+We conclude this section by identifying the edge homomorphsim of the spectral sequence as the natural restriction morphism
+\begin{equation}
+  \label{eq:restriction}
+  \resmap: \H^\bullet(\g,\even{\g};M) \to \H^\bullet(\g,\a;M)
+\end{equation}
+Which, in the case $M = \CC$, makes $\H^\bullet(\g,\a;\CC)$ into an integral extension of a quotient of $\H^\bullet(\g,\even{g};\CC)$.
+
+\begin{proposition}
+  The edge homomorphism of the spectral sequence corresponds to the natural restriction homomorphism of cohomology rings.
+\end{proposition}
+\begin{proof}
+The restriction map $C^n(\g,\even{\g};\CC) \xrightarrow{\resmap} C^n(\g,\a;\CC)$ induces a map on cohomology $\H^n(\g,\even{\g};\CC) \xrightarrow{\resmap^*} \H^n(\g,\a;\CC)$. Because restriction repects the filtration of Section \ref{sec:filt-cochains}, the map $\resmap^*$ will respect the induced filtration on cohomology, i.e., $F^p \H^n(\g,\even{\g};\CC) \xrightarrow{\resmap^*} F^p\H^n(\g,\a;\CC)$. This descends to a map on the associated graded of each cohomology ring, which may be precomposed with the projection onto associated graded as follows
+  \[
+    \H^n(\g,\even{\g};\CC) \to \Gr\left(\H^n(\g,\even{\g};\CC) \right) \to \Gr\left( \H^n(\g,\a;\CC) \right)
+  \]
+
+\end{proof}
+
+\begin{corollary}
+  When $\a \leq \even{\g}$,
+  \[
+    \dim_{Kr}\H^\bullet(\g,\a;\CC) \leq \dim_{Kr}\H^\bullet(\g,\even{\g};\CC)
+  \]
+  
+\end{corollary}
+\begin{proof}
+  The corollary follows from the fact that an integral extension has Krull dimension no greater than the base, and quotients can have smaller Krull dimension.
+\end{proof}
+
+
+
+\section{A Cohomology Ring of Intermediate Dimension}
+\label{sec:int-dim}
+
+  In many instances, Lie superalgebra cohomology $\H^\bullet(\g;\CC) = \H^\bullet(\g,0;\CC)$ will vanish in all but finitely many degrees (see \cite{fuks-leites} or \cite[Th\'eor\`eme 5.3]{MR1450424}), leading one to conclude the ring has Krull dimension zero and thus uninteresting geometry. Here it is shown that for $\g = \gl(1|1)$ and $\a$ generated by $\operatorname{diag}(1 \mid 1) \in \gl(1|1)$, $\H^\bullet(\g,\a;\CC)$ is nonzero in infinitely many degrees. From this, we may conclude $\H^\bullet(\g,\a;\CC)$ has positive Krull dimension. This is an especially nice case; $\a$ acts trivially on $\gl(1|1)$ so every map $\superext{n}(\g/\a) \to \CC$ is $\a$-invariant.
+
+  Take the basis for $\gl(1|1)/\a$
+  \[
+    \alpha = \begin{pmatrix} 1 & 0 \\ 0 & 0\end{pmatrix}\text{ , } \beta_1 = \begin{pmatrix}0 & 1 \\ 0 & 0\end{pmatrix} \text{ , } \beta_2 = \begin{pmatrix}0 & 0 \\ 1 & 0\end{pmatrix}
+  \]
+  $\superext{2n}(\g/\a)$ has basis $\{\alpha \otimes \beta_1^i \beta_2^j\}_{i + j + 1 = n} \cup \{\beta_1^i \beta_2^j\}_{i+j = n}$. Consider $f \in C^{2i}(\g,\a;\CC)$ which maps $\beta_1^n \beta_2^n$ to 1 and all other basis vectors to zero. Since $\CC$ has the trivial action, $df$ has the form
+  \[
+    df(\w_0 \wedge \ldots \wedge \w_{2n}) = \sum_{i = 0}^p (-1)^{\sigma_{i,j}(\bar \w_0,\ldots,\bar\w_{2n})} f([\w_i,\w_j] \wedge \w_0 \wedge \ldots \hat \w_i \ldots \hat \w_j \ldots \wedge \w_{2n})
+  \]
+  By inspection, $df$ will vanish on all basis vectors $\beta_1^i \beta_2^j$ and $df(\alpha \otimes \beta_1^i \beta_2^j) = (i-j) f(\beta_1^i \beta_2^j)$. This is $0$ when $i,j \neq n$ by definition of $f$, and when $i = j = n$ this is zero because the coefficient vanishes. So $f$ is a cocycle.
+
+  Suppose $dg = f$ for some $g \in C^{2n-1}(\g,\a;\CC)$. Then we compute $dg(\beta_1^n \beta_2^n)$, which is a sum of terms of the form $(-1)^{\sigma_{i,j}(-)} g([\beta_k, \beta_l] \wedge \beta_1^{n_1} \wedge \beta_2^{n_2}$, each of which vanishes individually so that $dg(\beta_1^n \beta_2^n) = 0$.
+
+  Therefore, $f$ is \emph{not} a coboundary. So for every $n \geq 2$, $\H^{2n}(\g,\a;\CC) \neq 0$. This shows that cohomology relative to an even subalgebra heuristically lies somewhere between the results of Fuks-Leites \cite{fuks-leites} and Boe-Kujawa-Nakano \cite{BKN-1}.
+
+\section{Structure of Cohomology Rings}
+\label{sec:structure}
+
+The spectral sequence of Section \ref{sec:filt-cochains} allows us to investigate the properties of cohomology rings in certain cases. There are certain conditions on the spectral sequence that appear quite often and it is shown that these cohomology rings are particularly nicely behaved.
+
+\subsection{Cohen-Macaulay Cohomology Rings}
+\label{sec:cm-H*}
+
+The following theorem is motivated by \cite[Proposition 3.1]{MR3233523}. The reader should recall that an algebra $A$ is \emph{Cohen-Macaulay} if there is a polynomial subalgebra over which $A$ is a finite and free module, see \cite[\S 5.4]{MR1634407}.
+
+\begin{proposition}
+  \label{prop:collapse-CM}
+  Let $\g = \even{\g} \oplus \odd{\g}$ be a classical Lie superalgebra, and $\a \leq \even{\g}$ a subalgebra. If the spectral sequence constructed in Section \ref{sec:spectral-sequence} collapses at $E_2$ (i.e., if $E_2^{\bullet,\bullet}(\CC) \cong E_\infty^{\bullet,\bullet}(\CC)$), then $\H^\bullet(\g,\a;\CC)$ is a Cohen-Macaulay ring.
+\end{proposition}
+\begin{proof}
+  The spectral sequence $E_2^{\bullet,\bullet} = E_\infty^{\bullet,\bullet}$ is a filtered version of the cohomology ring $\H^\bullet(\g,\a;\CC)$. As such, if $\zeta \in E_2^{i,j}$ and $\eta \in E_2^{r,s}$, then $\zeta \cdot \eta \in \sum_{\ell \geq 0} E_2^{i + r + \ell, j + s - \ell}$. Because of this, for any $m \geq 0$, the direct sum of the lowest $m$ rows, denoted $U_m = \sum_{q \leq m} E_2^{\bullet,q}$, is a module for the bottom row $U_0 = E_0^{\bullet,0} \cong \H^0(\even{\g},\a;\CC) \otimes S^\bullet(\odd{\g}^*)^{\even{G}} \cong S^\bullet(\odd{\g}^*)^{\even{G}}$, which by \cite{MR0347810} is a Cohen-Macaulay ring. Because the spectral sequence collapses, $E_2 = E_\infty$ and the quotients $U_m / U_{m-1} \cong \H^m(\even{\g},\a;\CC) \otimes S^\bullet(\odd{\g}^*)^{\even{G}}$ are free $S^\bullet(\odd{\g}^*)^{\even{G}}$-modules. This means the quotient maps $U_m \to U_m / U_{m-1}$ split as maps of $S(\odd{\g}^*)^{\even{G}}$-modules and the proposition follows.
+\end{proof}
+
+This example restricts to the case that cohomology of $\g$ relative to $\even{\g}$ vanishes in odd degrees. While this may seem restrictive, \cite[Table 1]{BKN-1} reveals that there are a great many classical Lie superalgebras whose cohomology lives in even degree.
+
+\begin{corollary}
+  Let $\g = \even{\g} \oplus \odd{\g}$ be a Lie superalgebra of type $\gl(m|n)$, $\sl(m|n)$, $\mathfrak{psl}(2n|2n)$, $\mathfrak{osp}(2m+1|2n)$, $\mathfrak{osp}(2m|2n)$, $P(4\ell - 1)$, $D(2,1;\alpha)$, $G(3)$, or $F(4)$. Let $\l \leq \even{\g}$ be a standard Levi subalgebra. The following hold:
+  \begin{enumerate}[\indent\rm(a)]
+  \item $\H^\bullet(\g,\l;\CC)$ is a Cohen-Macaulay ring.
+  \item $\krdim \H^\bullet(\g,\l;\CC) = \krdim S^\bullet(\odd{\g}^*)$.
+  \end{enumerate}
+\end{corollary}
+
+
+\subsection{Krull Dimensions}
+\label{sec:krull-dims}
+
+In this section we present some applications in which we use the spectral sequence of Section \ref{sec:spectral-sequence} to compute Krull dimensions of cohomology rings in particularly nice cases. The reader should notice these results rely on deep results from representation theory in the relative Category $\O$ (cf. \cite[\S 8]{MR2428237}).
+
+\begin{theorem} \label{prop:E2-collapse}
+  Let $\g = \even{\g} \oplus \odd{\g}$ be a classical Lie superalgebra such that $S^\bullet(\odd{\g})^{\even{G}}$ vanishes in odd degrees, and $\l \leq \even{\g}$ a standard Levi subalgebra (i.e., nonzero and generated by simple roots). The following hold.
+  \begin{enumerate}[\indent\rm (a)]
+    \item The spectral sequence of Section \ref{sec:spectral-sequence} collapses at the $E_2$ page and $E_2^{\bullet,\bullet}(\CC) \cong E_\infty^{\bullet,\bullet}(\CC)$.
+    \item $\H^\bullet(\g,\l;\CC)$ is Cohen-Macualay,
+    \item $\krdim \H^\bullet(\g,\even{\g};\CC) = \krdim \H^\bullet(\g,\l;\CC)$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  We establish (a). Parts (b) and (c) follow by application of Proposition \ref{prop:collapse-CM}.
+
+  Let $\g = \even{\g} \oplus \odd{\g}$ be a classical Lie superalgebra such that $S^\bullet(\odd{\g}^*)^{\even{G}}$ is zero in odd degrees, and $\l \leq \even{\g}$ a Levi subalgebra. According to the Kazhdan-Lusztig conjectures\footnote{When $\h \leq \even{\g}$ is a Cartan subalgebra, $\Ext^n_\O(M,N) \cong \Ext^n_{(\even{\g},\h)}(M,N)$ (see \cite[Theorem 6.15]{MR2428237}). The fact that $\Ext^n_{(\even{\g},\h)}(\CC,\CC)$ vanishes in odd degrees follows from \cite{MR1245719}.}, $\H^\bullet(\even{\g},\l;\CC)$ is only nonzero in even degrees. Section \ref{sec:pages} realizes the $E_2$ page of the Hochschild-Serre spectral sequence as
+\[
+  E_2^{p,q}(\CC) \cong \H^q(\even{\g},\l;\CC) \otimes S^p(\odd{\g}^*)^{\even{G}}.
+\]
+Because the differential $d_2:E_2^{p,q} \to E_2^{p+2,q-1}$ descends one row, either $E_2^{p,q} = 0$ or $E_2^{p+2,q-1} = 0$. In either case, $d_2 = 0$ and thus $E_3^{p,q} = E_2^{p,q}$ meaning that $E_3^{p,q}$ vanishes unless $p$ and $q$ are both even. By a similar argument, the differential $d_3:E_3^{p,q} \to E_3^{p+3,q-2}$ must be zero since one of $E_3^{p,q}$ or $E_3^{p+3,q-2}$ will have odd horizontal coordinate and thus be zero. So $E_3^{p,q} \cong E_4^{p,q}$. By induction, this trend continues to arrive at the conclusion that $E_2^{p,q} \cong E_\infty^{p,q}$. This yields the following statement.
+\end{proof}
+
+This example restricts to the case that cohomology of $\g$ relative to $\even{\g}$ vanishes in odd degrees. While this may seem restrictive, \cite[Table 1]{BKN-1} reveals that there are a great many classical Lie superalgebras whose cohomology lives in even degree.
+
+\begin{corollary}
+  Let $\g = \even{\g} \oplus \odd{\g}$ be a Lie superalgebra of type $\gl(m|n)$, $\sl(m|n)$, $\mathfrak{psl}(2n|2n)$, $\mathfrak{osp}(2m+1|2n)$, $\mathfrak{osp}(2m|2n)$, $P(4\ell - 1)$, $D(2,1;\alpha)$, $G(3)$, or $F(4)$. Let $\l \leq \even{\g}$ be a standard Levi subalgebra. The following hold:
+  \begin{enumerate}[\indent\rm(a)]
+  \item $\H^\bullet(\g,\l;\CC)$ is a Cohen-Macaulay ring.
+  \item $\krdim \H^\bullet(\g,\l;\CC) = \krdim S^\bullet(\odd{\g}^*)$.
+  \end{enumerate}
+\end{corollary}
+
+%%% Local Variables:
+%%% TeX-master: "../dissertation.tex"
+%%% End:

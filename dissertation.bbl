@@ -1,0 +1,153 @@
+\begin{thebibliography}{BKN10}
+
+\bibitem[AE81]{MR621284}
+Jonathan Alperin and Leonard Evens.
+\newblock Representations, resolutions and {Q}uillen's dimension theorem.
+\newblock {\em J. Pure Appl. Algebra}, 22(1):1--9, 1981.
+
+\bibitem[Ben98]{MR1634407}
+David Benson.
+\newblock {\em Representations and cohomology. {II}}, volume~31 of {\em
+  Cambridge Studies in Advanced Mathematics}.
+\newblock Cambridge University Press, Cambridge, second edition, 1998.
+\newblock Cohomology of groups and modules.
+
+\bibitem[BKN08]{MR2448087}
+Irfan Bagci, Jonathan Kujawa, , and Daniel Nakano.
+\newblock Cohomology and support varieties for {L}ie superalgebras of type
+  {$W(n)$}.
+\newblock {\em Int. Math. Res. Not. IMRN}, pages Art. ID rnn115, 42, 2008.
+
+\bibitem[BKN10]{BKN-1}
+Brian Boe, Jonathan Kujawa, and Daniel Nakano.
+\newblock Cohomology and support varieties for {L}ie superalgebras.
+\newblock {\em Trans. Amer. Math. Soc.}, 362(12):6551--6590, 2010.
+
+\bibitem[Bro94]{MR1310744}
+Daniel Brown.
+\newblock Relative cohomology of finite groups and polynomial growth.
+\newblock {\em J. Pure Appl. Algebra}, 97(1):1--13, 1994.
+
+\bibitem[Car83]{MR723070}
+Jon Carlson.
+\newblock The varieties and the cohomology ring of a module.
+\newblock {\em J. Algebra}, 85(1):104--143, 1983.
+
+\bibitem[Cho76]{MR0401943}
+Leo Chouinard.
+\newblock Projectivity and relative projectivity over group rings.
+\newblock {\em J. Pure Appl. Algebra}, 7(3):287--302, 1976.
+
+\bibitem[CN14]{MR3233523}
+Jon Carlson and Daniel Nakano.
+\newblock On the structure of cohomology rings of {$p$}-nilpotent {L}ie
+  algebras.
+\newblock {\em Transform. Groups}, 19(3):721--734, 2014.
+
+\bibitem[CPS93]{MR1245719}
+Edward Cline, Brian Parshall, and Leonard Scott.
+\newblock Abstract {K}azhdan-{L}usztig theories.
+\newblock {\em Tohoku Math. J. (2)}, 45(4):511--534, 1993.
+
+\bibitem[Eve61]{Evens-cohomology-ring}
+Leonard Evens.
+\newblock The cohomology ring of a finite group.
+\newblock {\em Trans. Amer. Math. Soc.}, 101:224--239, 1961.
+
+\bibitem[FL84]{fuks-leites}
+D.~B. Fuks and D.~A. Leites.
+\newblock Cohomology of {L}ie superalgebras.
+\newblock {\em Com. rend. Acad. bulg}, 37:1595, 1984.
+
+\bibitem[FP86]{MR860682}
+Eric Friedlander and Brian Parshall.
+\newblock Support varieties for restricted {L}ie algebras.
+\newblock {\em Invent. Math.}, 86(3):553--562, 1986.
+
+\bibitem[FP87]{FP-unipotent}
+Eric Friedlander and Brian Parshall.
+\newblock Geometry of {$p$}-unipotent {L}ie algebras.
+\newblock {\em J. Algebra}, 109(1):25--45, 1987.
+
+\bibitem[FS97]{MR1427618}
+Eric Friedlander and Andrei Suslin.
+\newblock Cohomology of finite group schemes over a field.
+\newblock {\em Invent. Math.}, 127(2):209--270, 1997.
+
+\bibitem[Fuk86]{fuks}
+D.~B. Fuks.
+\newblock {\em Cohomology of infinite-dimensional {L}ie algebras}.
+\newblock Contemporary Soviet Mathematics. Consultants Bureau, New York, 1986.
+\newblock Translated from the Russian by A. B. Sosinski{\u\i}.
+
+\bibitem[Gru97]{MR1450424}
+Caroline Gruson.
+\newblock Finitude de l'homologie de certains modules de dimension finie sur
+  une super alg\`ebre de {L}ie.
+\newblock {\em Ann. Inst. Fourier (Grenoble)}, 47(2):531--553, 1997.
+
+\bibitem[Har77]{hartshorne}
+Robin Hartshorne.
+\newblock {\em Algebraic geometry}.
+\newblock Springer-Verlag, New York-Heidelberg, 1977.
+\newblock Graduate Texts in Mathematics, No. 52.
+
+\bibitem[Hoc56]{hochschild}
+Gerhard Hochschild.
+\newblock Relative homological algebra.
+\newblock {\em Trans. Amer. Math. Soc.}, 82:246--269, 1956.
+
+\bibitem[HR74]{MR0347810}
+Melvin Hochster and Joel Roberts.
+\newblock Rings of invariants of reductive groups acting on regular rings are
+  {C}ohen-{M}acaulay.
+\newblock {\em Advances in Math.}, 13:115--175, 1974.
+
+\bibitem[HS53]{HS-53}
+Gerhard Hochschild and Jean-Pierre Serre.
+\newblock Cohomology of {L}ie algebras.
+\newblock {\em Ann. of Math. (2)}, 57:591--603, 1953.
+
+\bibitem[Hum08]{MR2428237}
+James Humphreys.
+\newblock {\em Representations of semisimple {L}ie algebras in the {BGG}
+  category {$\mathcal{O}$}}, volume~94 of {\em Graduate Studies in
+  Mathematics}.
+\newblock American Mathematical Society, Providence, RI, 2008.
+
+\bibitem[Kac77]{Kac}
+Victor Kac.
+\newblock Lie superalgebras.
+\newblock {\em Advances in Math.}, 26(1):8--96, 1977.
+
+\bibitem[KW94]{MR1327543}
+Victor Kac and Minoru Wakimoto.
+\newblock Integrable highest weight modules over affine superalgebras and
+  number theory.
+\newblock In {\em Lie theory and geometry}, volume 123 of {\em Progr. Math.},
+  pages 415--456. Birkh\"auser Boston, Boston, MA, 1994.
+
+\bibitem[LNZ11]{MR2836115}
+Gustav Lehrer, Daniel Nakano, and Ruibin Zhang.
+\newblock Detecting cohomology for {L}ie superalgebras.
+\newblock {\em Adv. Math.}, 228(4):2098--2115, 2011.
+
+\bibitem[Qui71]{MR0298694}
+Daniel Quillen.
+\newblock The spectrum of an equivariant cohomology ring. {I}, {II}.
+\newblock {\em Ann. of Math. (2)}, 94:549--572; ibid. (2) 94 (1971), 573--602,
+  1971.
+
+\bibitem[Var]{varadarajan}
+V.~S. Varadarajan.
+\newblock {\em Supersymmetry for mathematicians: an introduction}, volume~11 of
+  {\em Courant Lecture Notes in Mathematics}.
+\newblock New York University, Courant Institute of Mathematical Sciences, New
+  York; American Mathematical Society, Providence, RI.
+
+\bibitem[Ven59]{MR0108788}
+Boris Venkov.
+\newblock Cohomology algebras for some classifying spaces.
+\newblock {\em Dokl. Akad. Nauk SSSR}, 127:943--944, 1959.
+
+\end{thebibliography}

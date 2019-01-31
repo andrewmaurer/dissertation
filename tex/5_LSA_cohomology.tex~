@@ -1,0 +1,99 @@
+\chapter{Relative Cohomology of Lie Superalgebras}
+
+\section{Overview}
+\label{sec:coh-overview}
+
+Relative cohomology of Lie superalgebras generalizes the cohomology theory of Lie algebras in two ways. When both generalizations are utilized simultaneously, geometrically meaningful cohomology rings arise. This is in stark contrast to ordinary Lie algebra cohomology rings, which have Krull dimension zero and are indeed finite-dimensional vector spaces.
+
+The first generalization is to consider Lie superalgebras rather than Lie algebras. The Koszul complex used to compute Lie superalgebra cohomology is nonzero in infinitely many degrees, potentially leading to cohomology rings of positive Krull dimension. Unfortunately, it was proved by Fuks-Leites that this is rarely the case \cite{fuks-leites}.
+
+The second generalization is to consider cohomology \emph{relative} to a subsuperalgebra. Remarkably, in Lie superalgebra theory, relative cohomology often times yields cohomology groups that are larger than their absolute counterparts. Relative cohomology of Lie algebras was first considered by Fuks \cite{fuks}, and fits into the relative cohomology theory of Hochschild \cite{hochschild}, considered in Appendix \ref{ap:rel-coh}.
+
+\section{Koszul Complex}
+\label{sec:koszul}
+
+  Let $\g$ be a Lie superalgebra, $\a \leq \g$ a subsuperalgebra, and $M$ a $\g$-supermodule. The \emph{$p^\text{th}$ cochain of $(\g,\a)$ with coefficients in $M$} is the $\a$-module
+  \[
+    \C^p(\g,\a;M) = \Hom_\a\left( \superext{p}(\g/\a), M \right)
+  \]
+  The \emph{coboundary map} $d: \C^p(\g,\a;M) \to \C^{p+1}(\g,\a;M)$ is defined by
+\begin{align*}
+  df(\w_0 \wedge \ldots \wedge \w_n) = &\sum_{i = 0}^n (-1)^{\tau_i(\bar \w_0, \ldots,\bar\w_n,\bar f)} \w_i .f(\w_0 \wedge \ldots \hat \w_i \ldots \wedge \w_n) \\
+ &+ \sum_{i < j} (-1)^{\sigma_{i,j}(\bar \w_0, \ldots , \bar \w_n)} f([\w_i,\w_j] \wedge \w_0 \wedge \ldots \hat \w_i \ldots \hat \w_j \ldots \wedge \w_n)
+\end{align*}
+where parities $\tau_i$ and $\sigma_{i,j}$ follow the formulae
+\begin{align*}
+  \tau_i(\alpha_0,\ldots,\alpha_n,\beta) &= i + \alpha_i (\alpha_0 + \ldots + \alpha_{i-1} + \beta)\\
+  \sigma_{i,j}(\alpha_0,\ldots,\alpha_n) &= i + j + \alpha_i \alpha_j + \alpha_i(\alpha_0 + \ldots + \alpha_{i-1}) + \alpha_j (\alpha_0 + \ldots + \alpha_{j-1})
+\end{align*}
+
+Composing these maps yields a diagram:
+\begin{equation}\label{eq:complex}
+  \ldots \xrightarrow{d} \C^{p-1}(\g,\a;M) \xrightarrow{d} \C^p(\g,\a;M) \xrightarrow{d} \C^{p+1}(\g,\a;M) \xrightarrow{d} \ldots
+\end{equation}
+
+\begin{proposition}
+  Let $\g$ be a Lie superalgebra, $\a \leq \g$ a submodule, and $M$ a $\g$-module. The morphism
+  \[
+    d \circ d : \H^{p-1}(\g,\a;M) \to \H^{p+1}(\g,\a;M)
+  \]
+  is equal to zero. In other words, Diagram \ref{eq:complex} is a complex.
+\end{proposition}
+
+\begin{definition}
+  Let $\g$ be a Lie superalgebra, $\a \leq \g$ a subsuperalgebra, and $M$ a $\g$-supermodule. The \emph{$p^\text{th}$ cohomology group of $(\g,\a)$ with coefficients in $M$} is the $\a$-module
+  \[
+    \H^p(\g,\a;M) = \frac{\ker\left(d:\C^p(\g,\a;M) \to \C^{p+1}(\g,\a;M)\right)}{\im \left(d:\C^{p-1}(\g,\a;M) \to \C^{p}(\g,\a;M)\right)}
+  \]
+  
+\end{definition}
+
+\section{Products on Cochains and Cohomology}
+\label{sec:products}
+
+Consider modules $M_1$, $M_2$, and $N$, with a pairing, i.e., a map of $\g$-modules $m:M_1 \otimes M_2 \to N$. Cochains may be paired
+\[
+  C^p(\g,\a;M_1) \otimes C^q(\g,\a;M_2) \to C^{p+q}(\g,\a;N)
+\]
+by making use of the super anaologue of ordinary Grassmann multiplication $\mu: \superext{p}(\g/\a) \otimes \superext{q}(\g/\a) \to \superext{p+q}(\g/\a)$ as follows:
+\begin{align}
+  \begin{split}
+    C^p(\g,\a;M_1) \otimes C^q(\g,\a;M_2) &\cong \Hom_\a\left(\superext{p}(\g/\a),M_1\right) \otimes \Hom_\a\left(\superext{q}(\g,\a),M_2\right) \\
+    & \to \Hom_\a\left( \superext{p}(\g/\a) \otimes \superext{q}(\g/\a), M_1 \otimes M_2 \right) \\
+    & \to \Hom_\a\left( \superext{p+q}(\g/\a), N\right) \\
+    &= C^{p+q}(\g,\a;N)
+  \end{split}
+\end{align}
+
+We will be most interest in the case $M_1 = M_2 = N = \CC$ and $\CC \otimes \CC \to \CC$ is ordinary multiplication. Of secondary interest is the case when $M_1 = M^*$, $M_2 = M$ and $N = M* \otimes M$ with pairing given by the natural action $\gamma \otimes x \mapsto \gamma(x)$.
+
+This pairing of cochains descends to a well-defined pairing of cohomology groups
+\begin{equation}
+  \label{eq:cohom-prod}
+  \H^p(\g,\a;M_1) \otimes \H^q(\g,\a;M_2) \to H^{p+q}(\g,\a;N)
+\end{equation}
+which leads to the following definition and theorem.
+
+\begin{definition}
+  The \emph{cohomology ring} of $\g$ relative to $\a$ is the set
+  \[
+    \H^\bullet(\g,\a;\CC) = \bigoplus_{p \geq 0} \H^p(\g,\a;\CC)
+  \]
+  
+\end{definition}
+
+\begin{theorem}
+  Let $\g$ be a Lie superalgebra and $\a \leq \g$ a subsuperalgebra. The morphism of Equation \ref{eq:cohom-prod}
+\[
+  \H^p(\g,\a;M_1) \otimes \H^q(\g,\a;M_2) \to \H^{p+q}(\g,\a;N)
+\]
+defines a ring structure on $\H^\bullet(\g,\a;M)$. Furthermore, this ring is graded-commutative, meaning that for homogeneous elements $\alpha, \beta \in \H^\bullet(\g,\a;\CC)$, $\alpha \cdot \beta = (-1)^{\bar \alpha \cdot \bar \beta} \beta \cdot \alpha$.
+\end{theorem}
+
+\section{Classical Results on the Relative Cohomology of Lie Superalgebras}
+\label{sec:bkn-fuks-leites}
+
+%%% Local Variables:
+%%% TeX-master: "../dissertation.tex"
+%%% End:
+
