@@ -1,5 +1,5 @@
 \chapter{Relative Cohomology of Lie Superalgebras}
-
+\label{chap:rel-cohom}
 \section{Overview}
 \label{sec:coh-overview}
 
@@ -7,7 +7,7 @@ Relative cohomology of Lie superalgebras generalizes the cohomology theory of Li
 
 The first generalization is to consider Lie superalgebras rather than Lie algebras. The Koszul complex used to compute Lie superalgebra cohomology is nonzero in infinitely many degrees, potentially leading to cohomology rings of positive Krull dimension. Unfortunately, it was proved by Fuks-Leites that this is rarely the case \cite{fuks-leites}.
 
-The second generalization is to consider cohomology \emph{relative} to a subsuperalgebra. Remarkably, in Lie superalgebra theory, relative cohomology often times yields cohomology groups that are larger than their absolute counterparts. Relative cohomology of Lie algebras was first considered by Fuks \cite{fuks}, and fits into the relative cohomology theory of Hochschild \cite{hochschild}, considered in Appendix \ref{ap:rel-coh}.
+The second generalization is to consider cohomology \emph{relative} to a subsuperalgebra. Remarkably, in Lie superalgebra theory, relative cohomology often times yields cohomology groups that are larger than their absolute counterparts. Relative cohomology of Lie algebras was first considered by Fuks \cite{fuks}, and fits into the relative cohomology theory of Hochschild \cite{hochschild}.
 
 \section{Koszul Complex}
 \label{sec:koszul}
@@ -37,7 +37,7 @@ Composing these maps yields a diagram:
   \[
     d \circ d : \H^{p-1}(\g,\a;M) \to \H^{p+1}(\g,\a;M)
   \]
-  is equal to zero. In other words, Diagram \ref{eq:complex} is a complex.
+  is equal to zero. In other words, Equation \ref{eq:complex} is a complex.
 \end{proposition}
 
 \begin{definition}
@@ -90,7 +90,7 @@ which leads to the following definition and theorem.
 defines a ring structure on $\H^\bullet(\g,\a;M)$. Furthermore, this ring is graded-commutative, meaning that for homogeneous elements $\alpha, \beta \in \H^\bullet(\g,\a;\CC)$, $\alpha \cdot \beta = (-1)^{\bar \alpha \cdot \bar \beta} \beta \cdot \alpha$.
 \end{theorem}
 
-\section{Classical Results on the Relative Cohomology of Lie Superalgebras}
+\section{Classical Results}
 \label{sec:bkn-fuks-leites}
 
 This section is devoted to presenting two theorems which describe the bahavior of relative cohomology at extreme values of $\a \leq \even{\g}$. Namely, the result of Fuks-Leites states that cohomology relative to $\a = 0$ contains very little geometric information. In other words, the cohomology ring is a finite-dimensional vector space. The result of Boe-Kujawa-Nakano states that cohomology relative to $\a = \even{\g}$ carries geometric information and the behavior of this cohomology ring is governed by invariant theory.
@@ -110,7 +110,47 @@ There are ring isomorphisms relating Lie superalgebra cohomology to Lie algebra 
    A similar statement holds for Lie superalgebras of type $G(3)$, $F(4)$, and $D(2,1;\alpha)$
 \end{theorem}
 
+\begin{theorem}[Boe-Kujawa-Nakano, \cite{BKN-1}] \label{thm:bkn}
+  Let $\g$ be a classical Lie superalgebra with $\even{\g} = \Lie(\even{G})$. The cohomology ring relative to $\even{\g}$ may be identified as the invariants of the action of $\even{G}$ on polynomials on $\odd{\g}$:
+  \begin{equation}
+    \label{eq:bkn-thm}
+    \H^\bullet(\g,\even{\g};\CC) \cong S^\bullet(\odd{\g}^*)^{\even{G}}.
+  \end{equation}
+  Because $\even{G}$ is a reductive algebraic group, this cohomology ring is finitely-generated over $\CC$.
+\end{theorem}
 
+This essentially follows by looking at the coboundary definition of Section \ref{sec:koszul}, and realizing that all coboundaries disappear when $\a = \even{\g}$. Therefore, the cochain groups are isomorphic to the cohomology groups.
+
+\section{Sequential realization of $\Ext_{(\g,\a)}^n(M,N)$}
+\label{sec:ext-realization}
+
+For $\g$ a Lie superalgebra and $\a \leq \g$, the $\Ext$-group of a pair of modules $\Ext_{(\g,\a)}^n(M,N)$ has a handy realization. As in the finite groups case  as the set of all $n$-fold extensions
+\begin{equation}
+  \label{eq:ext-seq}
+  0 \to N \to E_1 \to E_2 \to \ldots \to E_n \to M \to 0
+\end{equation}
+which split upon restriction to $\a$. 
+
+\section{Computations}
+\label{sec:compute-H*}
+
+In this section we present computations of relative cohomology for Lie superalgebras of the form $\left< x\right>$, which were classified in Example \ref{ex:q1}. For more computations, we direct the reader to \cite[Table 1]{BKN-1}.
+
+\begin{example}
+  \begin{enumerate}
+  \item If $x \in \even{\g}$, then $\left<x\right> \cong \CC$ and $\H^\bullet(\left<x\right>, \even{\left<x\right>} ; \CC) = \CC$.
+  \item If $x \in \odd{\g}$ and $[x,x] =0$, then $\g \cong 0 \oplus \CC$. Thus $\H^\bullet(\left<x\right>,\even{\left<x\right>};CC) = \H^\bullet(\left<x\right>,0;\CC)$, and by Theorem \ref{thm:bkn}
+    \begin{equation}
+      \label{eq:odd-ab-cohom}
+      \H^\bullet(\left<x\right>,0;\CC) \cong S(\odd{\g}^*)^{1} \cong \CC[y]
+    \end{equation}
+  \item If $x \in \odd{\g}$ and $[x,x] \neq 0$, then $\left<x\right>$ is of type $\q(1)$. The adjoint action of $\even{\g} \actson \odd{\g}$ is trivial, so again we use Theorem \ref{thm:bkn} to conclude
+    \begin{equation}
+      \label{eq:q(1)-cohom}
+      \H^\bullet(\q(1),\even{\q(1)};\CC) \cong S(\odd{\g}^*)^{\GG_m} \cong \CC[y]
+    \end{equation}
+  \end{enumerate}
+\end{example}
 
 %%% Local Variables:
 %%% TeX-master: "../dissertation.tex"

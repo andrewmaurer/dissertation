@@ -3,47 +3,46 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: dissertation.aux
 The style file: alpha.bst
 Database file #1: references.bib
-Warning--I didn't find a database entry for "fuks1984cohomology"
 Warning--empty year in varadarajan
-You've used 27 entries,
+You've used 31 entries,
             2543 wiz_defined-function locations,
-            761 strings with 8152 characters,
-and the built_in function-call counts, 10950 in all, are:
-= -- 1147
-> -- 389
-< -- 20
-+ -- 124
-- -- 121
-* -- 805
-:= -- 1740
-add.period$ -- 86
-call.type$ -- 27
-change.case$ -- 149
-chr.to.int$ -- 27
-cite$ -- 28
-duplicate$ -- 445
-empty$ -- 843
-format.name$ -- 162
-if$ -- 2246
+            789 strings with 8593 characters,
+and the built_in function-call counts, 12085 in all, are:
+= -- 1246
+> -- 421
+< -- 27
++ -- 133
+- -- 129
+* -- 878
+:= -- 1922
+add.period$ -- 98
+call.type$ -- 31
+change.case$ -- 167
+chr.to.int$ -- 31
+cite$ -- 32
+duplicate$ -- 507
+empty$ -- 946
+format.name$ -- 178
+if$ -- 2478
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 32
-newline$ -- 141
-num.names$ -- 81
-pop$ -- 118
+missing$ -- 38
+newline$ -- 161
+num.names$ -- 93
+pop$ -- 150
 preamble$ -- 1
-purify$ -- 180
+purify$ -- 204
 quote$ -- 0
-skip$ -- 364
+skip$ -- 405
 stack$ -- 0
-substring$ -- 864
-swap$ -- 75
-text.length$ -- 20
-text.prefix$ -- 14
+substring$ -- 893
+swap$ -- 85
+text.length$ -- 27
+text.prefix$ -- 18
 top$ -- 0
-type$ -- 196
+type$ -- 216
 warning$ -- 1
-while$ -- 112
-width$ -- 31
-write$ -- 360
-(There were 2 warnings)
+while$ -- 120
+width$ -- 36
+write$ -- 412
+(There was 1 warning)

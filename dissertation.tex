@@ -44,7 +44,7 @@
 
 \fulltitle{Support Varieties for Classical Lie Superalgebras}
 
-\indexwords{Cohomology, Lie~superalgebra, Geometric~invariant~theory, Representation~theory, Support~Variety, Algebraic~geometry}
+\indexwords{Cohomology, Lie~Superalgebra, Geometric~Invariant~Theory, Representation~Theory, Support~Varieties, Algebraic~Geometry, Homological~Algebra}
 
 \dean{Suzanne Barbour}
 
@@ -56,8 +56,14 @@
 \begin{document}
 \pagenumbering{roman}
 
-\begin{abstract}  
-The author establishes finite-generation of the cohomology ring of a classical Lie superalgebra relative to an even subsuperalgebra. A spectral sequence is constructed to provide conditions for when this relative cohomology ring is Cohen-Macaulay. With finite generation established, support varieties for modules are defined via the relative cohomology, which generalize those of \cite{BKN-1}.
+\begin{abstract}
+  Classical Lie superalgebras arise in the physical theory of supersymmetry and behave analogously to Lie algebras in the theory of algebraic groups. In the theory of Lie algebras, the Koszul resolution is finite, meaning relative cohomology rings are finite as a vector over the field. For Lie superalgebras, the Koszul resolution is infinite. A theorem of Boe-Kujawa-Nakano states that for classical Lie superalgebras, the cohomology ring has finite Krull dimension, and the structure of the cohomology ring is determined by the invariant theory of a reductive group's action on a vector space. This realization opens the door to the study of the support variety theory for classical Lie superalgebras.
+  
+  The main result of this thesis is a generalization of the result of Boe-Kujawa-Nakano. The main theorem asserts that the cohomology ring of a classical Lie superalgebra relative to any even subsuperalgebra has finite Krull dimension, and is indeed a finite extension of a subquotient of the Boe-Kujawa-Nakano cohomology ring via restriction. The proof of the main theorem relies on a spectral sequence inspired by that of Hochschild-Serre.
+
+  The spectral sequence used to prove finite generation proves to be an invaluable tool in analyzing the behavior of cohomology rings. An example is presented in which the Krull dimension of a relative cohomology is positive but not equal to the Krull dimension of Boe-Kujawa-Nakano cohomology. Conditions are given for when the cohomology ring will be Cohen-Macaulay.
+
+  With finite-generation established, the final chapter of this dissertation is devoted to studying the relative support variety theory for modules. A realization morphism induced by restriction of functions plays a role similar to that of Friedlander-Parshall's realization morphism for restricted Lie algebras. The main goal of this chapter is to work towards a tensor product theorem for Lie superalgebras, which is left as a conjecture. 
 
 %   This is the abstract, a brief summary of the contents of the thesis.  It
 % is limited to 150 words in length for a master's thesis or 350 words for
@@ -95,7 +101,7 @@ The author establishes finite-generation of the cohomology ring of a classical L
 
 \pseudochapter{Acknowledgments}
 
-The author would like to thank his advisor, Dr Daniel Nakano for much motivation and support, and Dr William Graham for helpful conversations involving spectral sequences and Lie algebra cohomology. This work was completed as a part of the author's dissertation at University of Georgia, and was partially supported by the Research and Training Group in Algebraic Geometry, Algebra and Number Theory grant DMS-1344994 funded by the National Science Foundation.
+The author would like to thank his advisor, Dr Daniel Nakano for much motivation and support, and Dr William Graham for helpful conversations involving spectral sequences and Lie algebra cohomology. This work was partially supported by the Research and Training Group in Algebraic Geometry, Algebra and Number Theory grant DMS-1344994 funded by the National Science Foundation.
 
 % In a real thesis, this section would contain acknowledgments such
 % as, ``This work was funded by National Science Foundation Grant
@@ -133,8 +139,8 @@ The author would like to thank his advisor, Dr Daniel Nakano for much motivation
 
 \tableofcontents
 
-\listoffigures   % Optional - Omit this line if you don't want a list of figures.
-\listoftables    % Optional - Omit this line if you don't want a list of tables.
+%\listoffigures   % Optional - Omit this line if you don't want a list of figures.
+%\listoftables    % Optional - Omit this line if you don't want a list of tables.
 
 \newpage
 \pagenumbering{arabic}  % Ordinary pages have Arabic numerals.
@@ -153,8 +159,8 @@ The author would like to thank his advisor, Dr Daniel Nakano for much motivation
 
 \appendices
 
-\input{./tex/A1_SUSY.tex}
-\input{./tex/A2_relative_cohomology.tex}
+%\input{./tex/A1_SUSY.tex}
+%\input{./tex/A2_relative_cohomology.tex}
 
 \end{document}
 

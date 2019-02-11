@@ -1,83 +1,117 @@
-\chapter{Algebraic Geometry}
+\chapter{Ring Theoretic Notions}
 \label{chap:ag-git}
 
-\section{Motivation}
-\label{sec:motivation-ag}
+\section{Main Goals}
+\label{sec:ageom-goals}
 
-Algebraic geometry is a remarkably powerful discipline which allows one to view the hidden geometry arising in commutative ring theory. It turns out, many of these techniques that arose from commutative ring theory hold equally well for graded-commutative rings, i.e., graded rings satisfying $a \cdot b = (-1)^{\bar a \cdot \bar b} b \cdot a$. This is handy for representation theorists because cohomology rings are very often graded-commutative.
+The main goals of this section are to introduce the notions of depth and Krull dimension, and use them to investigate the particularly nice properties algebras have when these two quantities are equal.
 
-Algebraic geometry behaves nicely when the rings in question are finitely generated over a ground field, in which case the associated geometric object is a variety.
-
-\section{The Spectrum of a Ring}
-\label{sec:spec}
+\section{Ring theoretic conventions}
+\label{sec:rings}
 
 \begin{definition}
-  Let $\H^\bullet$ be a graded-commutative ring, which is finitely generated as a $\CC$-algebra. The \emph{spectrum} of $\H^\bullet$ is the set:
-  \[
-\Spec(\H^\bullet) = \left\{ [\p] \mid \p \leq \H^\bullet \text{ is a prime ideal} \right\}
-  \]
-  The set $\Spec(\H^\bullet)$ is equipped with a topology whose closed sets are the vanishing sets of ideals
-  \[
-    \Z(I) = \left\{ [\p] \in \Spec(\H^\bullet) \mid I \subseteq \p \right\}
-  \]
+  A \emph{ring} $\Hb$ is always a $\CC$-algebra, meaning $\CC \subseteq \Hb$ and $\CC$ lies in the center of $\Hb$. A ring is \emph{commutative} if $\alpha \cdot \beta = \beta \cdot \alpha$. It is graded-commutative if it is $\ZZ$-graded and $\alpha \cdot \beta = (-1)^{\bar \alpha \bar \beta} \beta \cdot \alpha$ for homogeneous elements $\alpha, \beta$ of degrees $\bar \alpha, \bar \beta$ respectively.
 \end{definition}
-
-\begin{note}
-  Despite the fact that $\H^\bullet$ is a graded ring, we choose to use $\Spec$ and not $\Proj$. As a result, the varieties considered are conical affine varieties and not projective varieties. This is especially useful because
-  \[
-    \Hom_\text{ring}(\H^\bullet_1,\H^\bullet_2) \longleftrightarrow \Mor_\text{var}(\Spec(\H^\bullet_2),\Spec(\H^\bullet_1))
-  \]
-  
-\end{note}
-
-In what follows, we will primarily be concerned with the topological space $\Spec(\H^\bullet)$, not with the sheaf of rings associated to it. The interested reader may consult Chapter II of Hartshorne\cite{hartshorne}.
-
-\begin{proposition}
-  Let $\H^\bullet_1$ and $\H^\bullet_2$ be commutative or graded-commutative rings. Let $I_1 \leq \H^\bullet_1$ be an ideal.
-  \begin{enumerate}[(a)]
-  \item A homomorphism of rings $\varphi: \H^\bullet_1 \to \H^\bullet_2$ corresponds to a morphism of varieties $\varphi^*: \Spec(\H^\bullet_2) \to \Spec(\H^\bullet_1)$. This map is determined on points by $\varphi^*([\p_2]) = \varphi^{-1}(\p_2) \leq \H^\bullet_1$.
-  \item The spectrum of a quotient $\Spec(\H^\bullet_1 / I_1)$ is isomorphic to $\Z(I_1)$. Furthermore, the quotient morphism $\pi : \H^\bullet_1 \onto \H^\bullet_1 / I_1$ corresponds to the inclusion morphism $\pi^*: \Z(I) \hookrightarrow \Spec \H^\bullet_1$.
-  \end{enumerate}
-\end{proposition}
-
-
-\section{Modules and Subvarieties}
-\label{sec:mods}
-
-As above, consider a graded-commutative ring $\H^\bullet$. Let $\M$ be a finitely-generated $\H^\bullet$-module. This module has an \emph{annihilator}
-\[
-  \Ann_{\H^\bullet}(\M) = \{x \in \H^\bullet \mid x . M = 0 \}
-\]
 
 \begin{definition}
-  The \emph{support} of $\M$ is the vanishing set of the annihilator of $\M$:
+  The \emph{spectrum} of $\Hb$ is the set of prime ideals $\p \trianglelefteq \Hb$, equipped with the Zariski topology whose closed sets are of the form
   \[
-\Supp_{\H^\bullet}(\M) = \Z\left(\Ann_{\H^\bullet}(\M)\right) \subseteq \Spec(\H^\bullet)
+    \Z(I) = \left\{ [\p] \in \Spec \Hb \mid I \subseteq \p \right\}
   \]
-  
+  where $I \trianglelefteq \Hb$ is some ideal.
 \end{definition}
 
-\begin{proposition}
-  Let $\H^\bullet$ be a commutative or graded-commutative ring, and let $\M_i$ be $\H^\bullet$-modules.
-  \begin{enumerate}[(a)]
-  \item If $\H^\bullet$ is graded-commutative, then $\Supp_{\H^\bullet}(\M)$ is closed and conical.
-  \item $\Supp_{\H^\bullet}(\M_1 \oplus \M_2) = \Supp_{\H^\bullet}(\M_1) \cup \Supp_{\H^\bullet}(\M_2)$
-  \item If $0 \to \M_1 \to \M_2 \to \M_3 \to 0$ is a short exact sequence, and $\sigma \in S_3$ is a permutation of $\{1,2,3\}$, then
-    \[
-      \Supp_{\H^\bullet}(\M_{\sigma(1)}) \subseteq \Supp_{\H^\bullet}(\M_{\sigma(2)}) \cup \Supp_{\H^\bullet}(\M_{\sigma(3)})
-    \]
-    
-  \end{enumerate}
+\begin{proposition} \label{prop:iso-2}
+  Let $A \subseteq B$ be a pair of rings such that $B \setminus A \subseteq \mathcal{N}_B$, i.e., the complement of $A$ consists of nilpotent elements of $B$. Then \[A / \mathcal{N}_A \cong B / \mathcal{N}_B\]
 \end{proposition}
-
 \begin{proof}
-  \begin{enumerate}[(a)]
-  \item This is immediate. Vanishing sets are closed by definition. Because $\Supp_{\H^\bullet}(\M)$ is the vanishing of a homogeneous ideal, it must be conical.
-  \item 
-  \item 
-  \end{enumerate}
+  This is essentially an application of the second isomorphism theorem for rings.
 \end{proof}
 
+\begin{proposition} \label{prop:reduced}
+  Let $\Hb$ be a ring, and let $\mathcal{N}$ be the ideal consisting of all nilpotent elements of $\Hb$. As a topological space, $\Spec \left(\Hb\right) \cong \Spec \left( \Hb / \mathcal{N} \right)$.
+\end{proposition}
+\begin{proof}
+  Prime ideals of the quotient $\Hb / I$ correspond precisely to prime ideals of $\Hb$ which contain $I$. Couple this with the fact that \[\mathcal{N} = \bigcap_{[\p] \in \Spec(\Hb)} \p\] to deduce that prime ideals of $\Hb$ correspond precisely to the prime ideals of $\Hb / \mathcal{N}$.
+  
+\end{proof}
+\begin{corollary}
+  Suppose $\Hb$ is a graded-commutative ring. Let $\H^{ev} \subseteq \Hb$ be the commutative subring of all even-degree elements. As topological spaces, $\H^{ev}$ is homeomorphic to $\Hb$.
+\end{corollary}
+\begin{proof}
+  By Proposition \ref{prop:reduced}, $\Spec(\H^{ev}) \cong \Spec(\H^{ev}/\mathcal{N}^{ev})$, and similarly $\Spec(\Hb) \cong \Spec(\Hb/\mathcal{N}^\bullet)$. Now apply Proposition \ref{prop:iso-2} to see $\H^{ev} / \mathcal{N}^{ev} \cong \Hb / \mathcal{N}^\bullet$ and trace the homeomorphisms to the desired result.
+\end{proof}
+
+What the above Corollary tells us that when studying purely topological questions involving $\Hb$, it suffices to investigate the same topological question involving an 
+\section{Krull Dimension}
+\label{sec:krull}
+
+Let $\Hb$ be a ring. The $\Spec$ functor allows us to interpret $\Hb$ geometrically as the space $\Spec(\Hb)$. Neither the ring nor its spectrum has an immediately obvious notion of dimension. This can be remedied by investigating inclusions of closed sets and inclusions of ideals.
+
+\begin{definition} Let $\Hb$ be a ring. The \emph{Krull dimension} of $\Hb$ is the largest $n$ such that there exists an inclusion of prime ideals
+    \begin{equation}
+      \label{eq:krull-ideals}
+      \p_0 \subsetneq \p_1 \subsetneq \p_2 \subsetneq \ldots \subsetneq \p_n
+    \end{equation}
+    The Krull dimension of a ring is denoted $\krdim \Hb$.
+\end{definition}
+
+Chains of prime ideals, as in Equation \ref{eq:krull-ideals}, correspond to chains of irreducible subsets of $\Spec(\Hb)$. In the context of algebraic varieties, this corresponds to a point embedded in a curve embedded in a surface, and on to higher dimensions. In this way, Krull dimension agrees with geometric intuition.
+
+\begin{example}
+  \begin{enumerate}
+  \item When $R$ is a ring of Krull dimension $n$, $R[x]$ is a ring of Krull dimension $n+1$.
+  \item A field $k$ has Krull dimension 0, so the polynomial ring $k[x_1,\ldots,x_n]$ has dimension $n$.
+  \item Let $\zeta \in k[x_1,\ldots,x_n]$ be a non-constant polynomial. The ring $k[x_1,\ldots,x_n] / \left<\zeta\right>$ has Krull dimension $n-1$.
+  \item Suppose $\Hb$ is a graded-commmutative $\CC$-algebra, which is finite dimensional over $\H^0 \cong \CC$. The only prime ideal is $\H^+ = \bigoplus_{n > 0} \H^n$, so $\krdim \Hb = 0$.
+  \item A principal ideal domain has dimension 1.
+  \item Any Noetherian ring has finite Krull dimension.
+  \end{enumerate}
+\end{example}
+
+\section{Cohen Macaulay Rings}
+\label{sec:cm}
+
+In this section we describe rings which are of especial interest to algebraic geometers. Two useful references for this section are \cite[\S 5.4]{MR1634407} and \cite[\S 18]{MR1322960}.
+
+\begin{definition}
+  Let $\Hb = \bigoplus_{n \geq 0} \H^n$ be a finitely-generated graded commutative $k$-algebra and $M = \bigoplus_{n \geq 0} M_n$ be a finitely-generated graded $A$-module. A sequence of homogeneous elements $\{\zeta_i\}_{i = 1}^r$ is a \emph{regular sequence for $M$} if for each $i$, the map
+  \[
+    M_n / M_n \cap \left< \zeta_1, \ldots, \zeta_{i-1}\right> \to M_{n+\bar \zeta_i} / M_{n + \bar \zeta_i} \cap \left< \zeta_1, \ldots, \zeta_{i-1}\right>
+  \]
+  induced by multiplication by $\zeta_i$ is injective.
+
+  The \emph{depth} of $M$ is the length of the longest regular sequence. $M$ is \emph{Cohen-Macaulay} if $\depth(M) = \krdim(M)$.  The ring $\Hb$ is \emph{Cohen-Macaulay} if it is Cohen-Macaulay as a module over itself.
+\end{definition}
+
+\begin{example}
+  The following rings are Cohen-Macaulay.
+  \begin{enumerate}
+  \item Any field $k$.
+  \item The polynomial ring $R[x_1,\ldots,x_n]$ and the ring of formal power series $R[[x_1,\ldots,x_n]]$, where $R$ is a Cohen-Macualay ring. In particular, $k[x_1,\ldots,x_n]$ is Cohen-Macaulay.
+  \item Integrally closed rings of dimension 2.
+  \end{enumerate}
+\end{example}
+
+The following proposition guides intuition when it comes to recognizing regular sequences in polynomial rings. The essential idea is one would \emph{hope} the ideal $\left<\zeta_1,\ldots,\zeta_r\right>$ would define a variety of codimension $r$. If it does, this is precisely the case that the sequence $\zeta_1,\ldots,\zeta_r$ is regular.
+
+\begin{proposition}[Macaulay]
+  Suppose $I = \left<\zeta_1, \ldots , \zeta_r\right>$ is an ideal in the polynomial ring  $\CC[x_1,\ldots,x_n]$. The sequence $\{\zeta_i\}_{i=1}^r$ is regular if and only if $\krdim(A/I) = n - r$.
+\end{proposition}
+
+The following is a handy way to identify Cohen-Macaulay rings:
+
+
+
+\begin{proposition}
+  Let $\Hb$ be a finitely-generated graded-commutative $\CC$-algebra. $\Hb$ is Cohen-Macaulay if and only if there is a polynomial subring $\CC[\zeta_1,\ldots,\zeta_r] \subseteq \Hb$ generated by homogeneous elements $\zeta_i$ such that $A$ is a finitely-generated and free as a $\CC[\zeta_1,\ldots,\zeta_r]$-module.
+\end{proposition}
+
+We will be primarily concerned with the actions of reductive algebraic groups on polynomial rings. The following result of Hochster-Roberts \cite{MR0347810} will be useful in the sequel.
+
+\begin{proposition}[Hochster-Roberts \cite{MR0347810}]
+  Let $\Hb$ be a Noetherian regular $\CC$-algebra, and $\even{G}$ a reductive linear algebraic group acting acting rationally on $\Hb$. The ring of invariants $(\Hb)^{\even{G}}$ is a Cohen-Macaulay ring.
+\end{proposition}
 
 %%% Local Variables:
 %%% TeX-master: "../dissertation.tex"

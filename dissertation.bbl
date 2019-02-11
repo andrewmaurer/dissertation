@@ -49,6 +49,13 @@ Edward Cline, Brian Parshall, and Leonard Scott.
 \newblock Abstract {K}azhdan-{L}usztig theories.
 \newblock {\em Tohoku Math. J. (2)}, 45(4):511--534, 1993.
 
+\bibitem[Eis95]{MR1322960}
+David Eisenbud.
+\newblock {\em Commutative algebra}, volume 150 of {\em Graduate Texts in
+  Mathematics}.
+\newblock Springer-Verlag, New York, 1995.
+\newblock With a view toward algebraic geometry.
+
 \bibitem[Eve61]{Evens-cohomology-ring}
 Leonard Evens.
 \newblock The cohomology ring of a finite group.
@@ -86,12 +93,6 @@ Caroline Gruson.
   une super alg\`ebre de {L}ie.
 \newblock {\em Ann. Inst. Fourier (Grenoble)}, 47(2):531--553, 1997.
 
-\bibitem[Har77]{hartshorne}
-Robin Hartshorne.
-\newblock {\em Algebraic geometry}.
-\newblock Springer-Verlag, New York-Heidelberg, 1977.
-\newblock Graduate Texts in Mathematics, No. 52.
-
 \bibitem[Hoc56]{hochschild}
 Gerhard Hochschild.
 \newblock Relative homological algebra.
@@ -108,12 +109,24 @@ Gerhard Hochschild and Jean-Pierre Serre.
 \newblock Cohomology of {L}ie algebras.
 \newblock {\em Ann. of Math. (2)}, 57:591--603, 1953.
 
+\bibitem[Hum75]{MR0396773}
+James Humphreys.
+\newblock {\em Linear algebraic groups}.
+\newblock Springer-Verlag, New York-Heidelberg, 1975.
+\newblock Graduate Texts in Mathematics, No. 21.
+
 \bibitem[Hum08]{MR2428237}
 James Humphreys.
 \newblock {\em Representations of semisimple {L}ie algebras in the {BGG}
   category {$\mathcal{O}$}}, volume~94 of {\em Graduate Studies in
   Mathematics}.
 \newblock American Mathematical Society, Providence, RI, 2008.
+
+\bibitem[Jan03]{MR2015057}
+Jens~Carsten Jantzen.
+\newblock {\em Representations of algebraic groups}, volume 107 of {\em
+  Mathematical Surveys and Monographs}.
+\newblock American Mathematical Society, Providence, RI, second edition, 2003.
 
 \bibitem[Kac77]{Kac}
 Victor Kac.
@@ -132,6 +145,11 @@ Gustav Lehrer, Daniel Nakano, and Ruibin Zhang.
 \newblock Detecting cohomology for {L}ie superalgebras.
 \newblock {\em Adv. Math.}, 228(4):2098--2115, 2011.
 
+\bibitem[Mau17]{1711.02112}
+Andrew Maurer.
+\newblock On the finite generation of relative cohomology for lie
+  superalgebras, 2017.
+
 \bibitem[Qui71]{MR0298694}
 Daniel Quillen.
 \newblock The spectrum of an equivariant cohomology ring. {I}, {II}.
@@ -149,5 +167,11 @@ V.~S. Varadarajan.
 Boris Venkov.
 \newblock Cohomology algebras for some classifying spaces.
 \newblock {\em Dokl. Akad. Nauk SSSR}, 127:943--944, 1959.
+
+\bibitem[Wei94]{MR1269324}
+Charles~A. Weibel.
+\newblock {\em An introduction to homological algebra}, volume~38 of {\em
+  Cambridge Studies in Advanced Mathematics}.
+\newblock Cambridge University Press, Cambridge, 1994.
 
 \end{thebibliography}

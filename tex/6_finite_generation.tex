@@ -19,6 +19,14 @@ In this chapter, we will prove the following theorem.
   \end{enumerate}
 \end{theorem}
 
+The proof of this theorem will require the construction of a cohomological spectral sequence through filtrations on cochains. References for this material include \cite[\S 3]{MR1634407} and \cite[\S 5]{MR1269324}.
+
+The filtration leading to the cohomological spectral sequence essentially amounts to thinking of cochains
+\[
+  C^p(\g,\a;M) \cong \Hom_{\a}\left(\superext{p}(\g/\a),M\right)
+\]
+as $p$-superalternating functions from $f:(\g/\a)^{ p} \to M$, and requiring homogeneous arguments $(\w_1,\ldots, \w_p)$ map to zero when too many coordinates lie in $\even{\g}/\even{\a}$.
+
 \section{Filtration on Cochains}
 \label{sec:filt-cochains}
 
@@ -37,8 +45,8 @@ holds, allowing the cochains to be decomposed (as $\a$-modules) as follows.
   &= \Hom_\a \left( \superext{n}\left(\even{\g}/\even{\a} \oplus \odd{\g}/\odd{\a}\right),M \right)\\
   &= \Hom_\a \left( \bigoplus_{i+j = n} \superext{i}\left(\even{\g}/\even{\a}\right) \otimes \superext{j}\left(\odd{\g}/\odd{\a}\right), M \right) \\
   &= \bigoplus_{i+j=n} \Hom_\a\left( \ext{i}\left(\even{\g}/\even{\a}\right) \otimes S^j\left(\odd{\g}/\odd{\a}\right), M  \right)\\
-  &= \bigoplus_{i+j=n} \Hom_\a\left( \ext{i}\left(\even{\g}/\even{\a}\right), S^{j}\left(\odd{\g}/\odd{\a}\right) \otimes M  \right) \\
-  &= \bigoplus_{i+j=n} C^i\left(\even{\g},\even{\a}; S^j(\odd{\g}/\odd{\a})\otimes M\right)
+  &= \bigoplus_{i+j=n} \Hom_\a\left( \ext{i}\left(\even{\g}/\even{\a}\right), S^{j}\left(\left(\odd{\g}/\odd{\a}\right)^*\right) \otimes M  \right) \\
+  &= \bigoplus_{i+j=n} C^i\left(\even{\g},\even{\a}; S^j\left((\odd{\g}/\odd{\a})^*\right)\otimes M\right)
 \end{split} \end{align}
 Equation \ref{eq:decompose-cochains} expresses arbitrary superalternating functions as sums of superalternating functions with $i$ arguments coming from $\even{\g}/\even{\a}$, and $j$ arguments coming from $\odd{\g}/\odd{\a}$.
 
@@ -86,7 +94,7 @@ Because of the properties established in Proposition \ref{prop:grading-propertie
   E_{r}^{p,q} \Rightarrow \H\left(C^\bullet(\g,\a;M)\right) = \H^\bullet(\g,\a;\CC)
 \end{equation}
 which computes cohomology.
-\TODO{Decide}{Do I need a chapter on spectral sequences?}
+
 
 \section{Pages of the Spectral Sequence}
 \label{sec:pages}
@@ -125,6 +133,7 @@ With Lemma \ref{lemma:vanishing} established, we are now ready to prove Proposit
 \item Functoriality of the isomorphism of (a), i.e., $E_0^{p,\bullet} \cong C^\bullet(\even{\g},\a;\Hom_\CC(S^p(\g/\even{\g}),M))$ as complexes will imply their cohomologies are equal, i.e.,  $E_1^{p,q} \cong \H^q(\even{\g},\a;\Hom_\CC(S^p(\g/\even{\g}),M))$.
 
   To deduce functoriality of the isomorphism it will suffice to chase the following diagram.
+  \begin{figure}[h]
     \[
     \begin{tikzcd}
       C^{p+q}(\g,\a;M)_{(p)} \arrow[r,"d_{(\g,\a)}"] \arrow[d,twoheadrightarrow] & C^{p+q+1}(\g,\a;M)_{(p)} \arrow[d,twoheadrightarrow] \arrow[dd,bend left=35,"\pi"] \\
@@ -132,6 +141,9 @@ With Lemma \ref{lemma:vanishing} established, we are now ready to prove Proposit
       C^q(\even{\g},\a;\Hom_\CC(S^p(\odd{\g}),M)) \arrow[r,"d_{(\even{\g},\a)}"] \arrow[uu,bend left=35,"i"] & C^{q+1}(\even{\g},\a;\Hom_\CC(S^p(\odd{\g}),M))
     \end{tikzcd}
   \]
+  \label{fig:comm-diag}
+  \caption{Compute $E_1$ page by comparing filtrations of cochain groups.}
+  \end{figure}
   With section $i$ corresponding to the direct sum decomposition given in Equation \ref{eq:decompose-cochains}. The goal is to show the composition $ \pi \circ d_{(\g,\a)}\circ i = d_{(\even{\g},\a)}$. Since $d_0$ is defined by $d_{(\g,\a)}$, this will show the bottom square commutes, resulting in an isomorphism of complexes.
 
   Choose $f \in C^q(\even{\g},\a;\Hom_\CC(S^p(\odd{\g}),M))$, and notice that $df$ is given by usual Lie algebra differential
@@ -139,13 +151,15 @@ With Lemma \ref{lemma:vanishing} established, we are now ready to prove Proposit
 df(\w_0 \wedge \ldots \w_q) = \sum_{i = 0}^q (-1)^i \w_i.f(\w_0 \wedge \ldots \hat \w_i \ldots \wedge \w_q) + \sum_{i < j} (-1)^{i+j}f([\w_i,\w_j] \wedge \w_0 \wedge \ldots \hat \w_i \ldots \hat \w_j \ldots \wedge \w_q)
   \]
   Set $\tilde f = i(f) \in C^{p+q}(\g,\a;M)$. The differential is given by the Lie superalgebra cohomology differential, and we arrive at a formula for $d_{(\g,\a)}f(\w_0 \wedge \ldots \wedge \w_{p+q})$. However, because we are taking a quotient $\pi$, it only matters how $d_{(\g,\a)}\tilde{f}$ behaves with $q+1$ even arguments and $p$ odd arguments. Thus we investigate
-  \begin{align*}
-    d_{(\g,\a)}f(\alpha_0\wedge \ldots \wedge \alpha_q \wedge \beta_1 \wedge \ldots \wedge \beta_p) &= \sum_{i = 0}^q (-1)^{\tau_i(-)} \alpha_i.\tilde{f}(\alpha_0\wedge \ldots \hat \alpha_0 \ldots \wedge \alpha_q \wedge \beta_1 \wedge \ldots \wedge \beta_p) \\
+  \begin{align}
+    \begin{split}
+    d_{(\g,\a)}f(\alpha_0\wedge \ldots \wedge \alpha_q& \wedge \beta_1 \wedge \ldots \wedge \beta_p)\\& = \sum_{i = 0}^q (-1)^{\tau_i(-)} \alpha_i.\tilde{f}(\alpha_0\wedge \ldots \hat \alpha_0 \ldots \wedge \alpha_q \wedge \beta_1 \wedge \ldots \wedge \beta_p) \\
                                                                                                     &+ \sum_{i = q+1}^{p+q} (-1)^{\tau_i(-)} \beta_{i - q}.f(\alpha_0 \wedge \ldots \wedge \alpha_q \wedge \beta_1 \wedge \ldots \hat \beta_{i-q} \ldots \wedge \beta_p) \\
                                                                                                     &+ \sum_{0 \leq i < j \leq q} (-1)^{\sigma_{i,j}(-)}f([\alpha_i,\alpha_j] \wedge \alpha_0 \ldots \hat \alpha_i \ldots \hat \alpha_j \ldots \beta_p) \\
                                                                                                     &+ \sum_{\substack{0 \leq i \leq q \\ q+1 \leq j \leq p+q}} (-1)^{\sigma_{i,j}(-)} f([\alpha_i,\beta_{j-q}] \wedge \alpha_0 \ldots \hat \alpha_i \ldots \hat \beta_{j-q} \ldots \beta_p) \\
     &+ \sum_{q+1 \leq i < j \leq p+q} (-1)^{\sigma_{i,j}(-)} f([\beta_{i-q},\beta_{j-q}]\wedge \alpha_0 \ldots \hat \beta_i \ldots \hat \beta_j \ldots \wedge \beta_p)
-  \end{align*}
+  \end{split}
+  \end{align}
   By construction, $\tilde{f}$ vanishes unless exactly $q$ arguments are even and $p$ arguments are odd. This only occurs in the first, third, and fourth lines of the preceding sum. Working out the relevant signs yields
 \[
   \tau_i(\underbrace{\bar 0,\ldots,\bar 0}_{q+1},\underbrace{\bar 1,\ldots,\bar 1}_p,\bar f) = i \text{ when } i \leq q
@@ -157,11 +171,11 @@ df(\w_0 \wedge \ldots \w_q) = \sum_{i = 0}^q (-1)^i \w_i.f(\w_0 \wedge \ldots \h
     \end{cases}
  \]
 So the previous equation for $d_{(\g,\a)}\tilde f$ becomes
-  \begin{align*}
-    d_{(\g,\a)}f(\alpha_0\wedge \ldots \wedge \alpha_q \wedge \beta_1 \wedge \ldots \wedge \beta_p) &= \sum_{i = 0}^q (-1)^{i} \alpha_i.\tilde{f}(\alpha_0\wedge \ldots \hat \alpha_0 \ldots \wedge \alpha_q \wedge \beta_1 \wedge \ldots \wedge \beta_p) \\
+  \begin{align}\begin{split}
+    d_{(\g,\a)}f(\alpha_0\wedge \ldots \wedge& \alpha_q \wedge \beta_1 \wedge \ldots \wedge \beta_p)\\ &= \sum_{i = 0}^q (-1)^{i} \alpha_i.\tilde{f}(\alpha_0\wedge \ldots \hat \alpha_0 \ldots \wedge \alpha_q \wedge \beta_1 \wedge \ldots \wedge \beta_p) \\
                                                                                                     &+ \sum_{0 \leq i < j \leq q} (-1)^{i+j}f([\alpha_i,\alpha_j] \wedge \alpha_0 \ldots \hat \alpha_i \ldots \hat \alpha_j \ldots \beta_p) \\
                                                                                                     &- \sum_{\substack{0 \leq i \leq q \\ q+1 \leq j \leq p+q}} (-1)^{i} f(\alpha_0 \ldots \hat \alpha_i \ldots \wedge \alpha_q \wedge [\alpha_i,\beta_{j-q}] \wedge \beta_1\ldots \hat \beta_{j-q} \ldots \beta_p) \\
-  \end{align*}
+  \end{split}\end{align}
   Now if we compute $d_{(\even{\g},\a)}f$, accounting for the action on $\Hom_\CC(S^p(\odd{\g}),M)$, we arrive at the same formula.
 \item Notice first that by semisimplicity $\Hom_\CC(S^n(\g/\even{\g}),M) \cong \Hom_{\even{\g}}(S^n(\g/\even{\g}),M) \oplus V$ where $V$ is some complement with $V^{\even{\g}} = 0$. By the lemma,
   \[
@@ -175,11 +189,9 @@ This completes the proof of Proposition \ref{prop:pages}.
 \section{Proof of Finite Generation}
 \label{sec:fg-proof}
 
-Recall the statement of Theorem \ref{thm:fg}:
+Recall the statement of Theorem \ref{thm:fg}, restated here for the reader's convenience.
 
-\TODO{Numbering}{How do I restate a Theorem the right way?}
-
-\begin{theorem}
+\begin{maintheorem}
   Let $\g = \even{\g} \oplus \odd{\g}$ be a classical Lie superalgebra, and $\a \leq \even{\g}$ an (even) subalgebra, and $M$ a $\g$-module.
   \begin{enumerate}[\indent\rm (a)]
     \item There is a spectral sequence $\{E_r^{p,q}\}$ which computes cohomology and satisfies
@@ -189,7 +201,7 @@ Recall the statement of Theorem \ref{thm:fg}:
   For $1 \leq r \leq \infty$, $E_r^{\bullet,\bullet}(M)$ is a module for $E_2^{\bullet,\bullet}(\CC)$. When $M$ is finite-dimensional, $E_2^{\bullet,\bullet}(M)$ is a Noetherian $E_2^{\bullet,\bullet}(\CC)$-module.
     \item Moreover, the cohomology ring $\H^\bullet(\g,\a;\CC)$ is a finitely-generated $\CC$-algebra.
   \end{enumerate}
-\end{theorem}
+\end{maintheorem}
 
 \begin{proof}
   In fact, the all that is left to show is that for $M$ finite-dimensional, $E_2^{\bullet,\bullet}(M)$ is a Noetherian $E_2^{\bullet,\bullet}(\CC)$-module, and that (b) follows from (a). The $E_2^{p,q}(M)$-page identification appears in Proposition \ref{prop:pages} of the previous section.
@@ -214,7 +226,7 @@ We conclude this section by identifying the edge homomorphsim of the spectral se
 \end{equation}
 Which, in the case $M = \CC$, makes $\H^\bullet(\g,\a;\CC)$ into an integral extension of a quotient of $\H^\bullet(\g,\even{g};\CC)$.
 
-\begin{proposition}
+\begin{proposition}\label{prop:edge}
   The edge homomorphism of the spectral sequence corresponds to the natural restriction homomorphism of cohomology rings.
 \end{proposition}
 \begin{proof}
@@ -269,7 +281,7 @@ The following theorem is motivated by \cite[Proposition 3.1]{MR3233523}. The rea
 
 \begin{proposition}
   \label{prop:collapse-CM}
-  Let $\g = \even{\g} \oplus \odd{\g}$ be a classical Lie superalgebra, and $\a \leq \even{\g}$ a subalgebra. If the spectral sequence constructed in Section \ref{sec:spectral-sequence} collapses at $E_2$ (i.e., if $E_2^{\bullet,\bullet}(\CC) \cong E_\infty^{\bullet,\bullet}(\CC)$), then $\H^\bullet(\g,\a;\CC)$ is a Cohen-Macaulay ring.
+  Let $\g = \even{\g} \oplus \odd{\g}$ be a classical Lie superalgebra, and $\a \leq \even{\g}$ a subalgebra. If the spectral sequence constructed in Section \ref{sec:filt-cochains} collapses at $E_2$ (i.e., if $E_2^{\bullet,\bullet}(\CC) \cong E_\infty^{\bullet,\bullet}(\CC)$), then $\H^\bullet(\g,\a;\CC)$ is a Cohen-Macaulay ring.
 \end{proposition}
 \begin{proof}
   The spectral sequence $E_2^{\bullet,\bullet} = E_\infty^{\bullet,\bullet}$ is a filtered version of the cohomology ring $\H^\bullet(\g,\a;\CC)$. As such, if $\zeta \in E_2^{i,j}$ and $\eta \in E_2^{r,s}$, then $\zeta \cdot \eta \in \sum_{\ell \geq 0} E_2^{i + r + \ell, j + s - \ell}$. Because of this, for any $m \geq 0$, the direct sum of the lowest $m$ rows, denoted $U_m = \sum_{q \leq m} E_2^{\bullet,q}$, is a module for the bottom row $U_0 = E_0^{\bullet,0} \cong \H^0(\even{\g},\a;\CC) \otimes S^\bullet(\odd{\g}^*)^{\even{G}} \cong S^\bullet(\odd{\g}^*)^{\even{G}}$, which by \cite{MR0347810} is a Cohen-Macaulay ring. Because the spectral sequence collapses, $E_2 = E_\infty$ and the quotients $U_m / U_{m-1} \cong \H^m(\even{\g},\a;\CC) \otimes S^\bullet(\odd{\g}^*)^{\even{G}}$ are free $S^\bullet(\odd{\g}^*)^{\even{G}}$-modules. This means the quotient maps $U_m \to U_m / U_{m-1}$ split as maps of $S(\odd{\g}^*)^{\even{G}}$-modules and the proposition follows.
@@ -289,12 +301,12 @@ This example restricts to the case that cohomology of $\g$ relative to $\even{\g
 \subsection{Krull Dimensions}
 \label{sec:krull-dims}
 
-In this section we present some applications in which we use the spectral sequence of Section \ref{sec:spectral-sequence} to compute Krull dimensions of cohomology rings in particularly nice cases. The reader should notice these results rely on deep results from representation theory in the relative Category $\O$ (cf. \cite[\S 8]{MR2428237}).
+In this section we present some applications in which we use the spectral sequence of Section \ref{sec:filt-cochains} to compute Krull dimensions of cohomology rings in particularly nice cases. The reader should notice these results rely on deep results from representation theory in the relative Category $\O$ (cf. \cite[\S 8]{MR2428237}).
 
 \begin{theorem} \label{prop:E2-collapse}
   Let $\g = \even{\g} \oplus \odd{\g}$ be a classical Lie superalgebra such that $S^\bullet(\odd{\g})^{\even{G}}$ vanishes in odd degrees, and $\l \leq \even{\g}$ a standard Levi subalgebra (i.e., nonzero and generated by simple roots). The following hold.
   \begin{enumerate}[\indent\rm (a)]
-    \item The spectral sequence of Section \ref{sec:spectral-sequence} collapses at the $E_2$ page and $E_2^{\bullet,\bullet}(\CC) \cong E_\infty^{\bullet,\bullet}(\CC)$.
+    \item The spectral sequence of Section \ref{sec:filt-cochains} collapses at the $E_2$ page and $E_2^{\bullet,\bullet}(\CC) \cong E_\infty^{\bullet,\bullet}(\CC)$.
     \item $\H^\bullet(\g,\l;\CC)$ is Cohen-Macualay,
     \item $\krdim \H^\bullet(\g,\even{\g};\CC) = \krdim \H^\bullet(\g,\l;\CC)$.
   \end{enumerate}

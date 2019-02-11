@@ -19,7 +19,7 @@ Let $\g$ be a classical Lie superalgebra and $\a \leq \even{\g}$ a subsuperalgeb
 \begin{equation} \label{eq:even-cohomology}
   \H^{ev}(\g,\a;\CC) = \bigoplus_{n \in \ZZ_{\geq 0}} \H^{2n}(\g,\a;\CC) \subseteq \H^\bullet(\g,\a;\CC)
 \end{equation}
-is a commutative, finitely-generated subring of $\H^\bullet(\g,\a;\CC)$, by Theorem [??]. This leads to the first definition of this chapter.
+is a commutative, finitely-generated subring of $\H^\bullet(\g,\a;\CC)$, by Theorem \ref{thm:fg}. This leads to the first definition of this chapter.
 
 
 \begin{definition}
@@ -29,7 +29,7 @@ is a commutative, finitely-generated subring of $\H^\bullet(\g,\a;\CC)$, by Theo
   \]
 \end{definition}
 
-For each $\g$-module $M$, $\Ext_{(\g,\a)}(M,M)$ is a graded module for the cohomology ring $\H^\bullet(\g,\a;\CC) = \Ext_{(\g,\a)}^\bullet(\CC,\CC)$ via the tensor product or cup product, as in Section [??]. Of course, $\Ext_{(\g,\a)}^\bullet(M,M)$ is a graded module for the subring $\H^{ev}(\g,\a;\CC)$. This means the annihilator
+For each $\g$-module $M$, $\Ext_{(\g,\a)}(M,M)$ is a graded module for the cohomology ring $\H^\bullet(\g,\a;\CC) = \Ext_{(\g,\a)}^\bullet(\CC,\CC)$ via the tensor product or cup product, as in Section \ref{sec:products}. Of course, $\Ext_{(\g,\a)}^\bullet(M,M)$ is a graded module for the subring $\H^{ev}(\g,\a;\CC)$. This means the annihilator
 \[
   \Ann_{\H^{ev}(\g,\a;\CC)}\left(\Ext_{(\g,\a)}^\bullet(M,M)\right) \trianglelefteq \H^{ev}(\g,\a;\CC)
 \]
@@ -63,7 +63,6 @@ Recall the realization
   \H^n(\g,\a;\CC) = \{ 0 \to \CC \to E_1 \to \ldots \to E_n \to \CC \to 0 \mid \circledast \} / \sim
 \end{equation}
 where $\circledast$ is the condition that the sequence is exact as a sequence of $\g$-modules and splits on restriction to $\a$, and $\sim$ is an equivalence reaction obtained from the pre-equivalence relation of there existing morphisms between extensions.
-\TODO{Structure}{Maybe this should go into the section on cohomology rings.}
 
 \begin{definition}
   A \emph{relative subsuperalgebra} is a quadruple $(\b \leq \h, \a \leq \g)$. Here $\h \leq \g$ is a classical subsuperalgebras, in the sense that $\even{\h} \leq \even{\g}$ and $\odd{\h} \leq \odd{\g}$. Further, $\a$ is a subsuperalgebra of $\g$ and $\b$ is a subsuperalgebra of $\h$ which is also contained in $\a$. See Figure \ref{fig:relative-pair} for a pictographic definition.
@@ -93,7 +92,7 @@ This yields a natural morphism of cohomology varieties
   \resmap^*: \V_{(\h,\b)}(\CC) \to \V_{(\g,\a)}(\CC).
 \end{equation}
 
-There are several special cases in which the morphism of Equation \ref{eq:nat-supp} is especially useful. By Theorem [??], $\H^\bullet(\g,\a;\CC)$ is an integral extension of a quotient of $\H^\bullet(\g,\even{\g};\CC)$ via the restriction morphism (which by [??] is the edge homomorphism of the spectral sequence). This means that the morphism of varieties
+There are several special cases in which the morphism of Equation \ref{eq:nat-supp} is especially useful. By Theorem \ref{thm:fg}, $\H^\bullet(\g,\a;\CC)$ is an integral extension of a quotient of $\H^\bullet(\g,\even{\g};\CC)$ via the restriction morphism (which by Proposition \ref{prop:edge} is the edge homomorphism of the spectral sequence). This means that the morphism of varieties
 \[
   \resmap^* : \V_{(\g,\a)}(\CC) \to \V_{(\g,\even{\g})}(\CC)
 \]
@@ -124,10 +123,10 @@ In many cases, the path to this theorem depends on the establishment of a rank v
   \[
     \V_{(\g,\even{\g})}^\#(M) = \left\{ \even{G}.x \mid x \in \odd{\g}, \even{G}.x \text{ is closed, and } M\res_{\left<x\right>}\text{ is not projective}  \right\} \cup \{0\}
   \]
-  The study of the structure of $\left<x\right>$ was conducted in Example \ref{ex:q1} and the cohomology rings were identified in Example [??]. 
+  The study of the structure of $\left<x\right>$ was conducted in Example \ref{ex:q1} and the cohomology rings were identified in Example \ref{sec:compute-H*}. 
 \end{definition}
 
-\section{}Let $\g$ be a classical Lie superalgebra with $\a \leq \even{\g}$ a subalgebra. We showed in Theorem \ref{thm:spectral-sequence} that $\H^\bullet(\g,\a;\CC)$ is a finitely-generated graded-commutative $\CC$-algebra. Therefore, the subring of even cohomology classes $\H^{ev}(\g,\a;\CC) = \bigoplus \H^{2\bullet}(\g,\a;\CC)$ is commutative and finitely-generated over $\CC$. The \textit{cohomology variety} of $\g$ relative to $\a$ is the algebraic variety
+\section{}Let $\g$ be a classical Lie superalgebra with $\a \leq \even{\g}$ a subalgebra. We showed in Theorem \ref{thm:fg} that $\H^\bullet(\g,\a;\CC)$ is a finitely-generated graded-commutative $\CC$-algebra. Therefore, the subring of even cohomology classes $\H^{ev}(\g,\a;\CC) = \bigoplus \H^{2\bullet}(\g,\a;\CC)$ is commutative and finitely-generated over $\CC$. The \textit{cohomology variety} of $\g$ relative to $\a$ is the algebraic variety
 \[
   \V_{(\g,\a)}(\CC) = \maxspec\left(\H^{ev}(\g,\a;\CC)\right).
 \]
