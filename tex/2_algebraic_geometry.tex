@@ -16,7 +16,7 @@ The main goals of this section are to introduce the notions of depth and Krull d
 \begin{definition}
   The \emph{spectrum} of $\Hb$ is the set of prime ideals $\p \trianglelefteq \Hb$, equipped with the Zariski topology whose closed sets are of the form
   \[
-    \Z(I) = \left\{ [\p] \in \Spec \Hb \mid I \subseteq \p \right\}
+    \Z(I) = \left\{ \p \in \Spec \Hb \mid I \subseteq \p \right\}
   \]
   where $I \trianglelefteq \Hb$ is some ideal.
 \end{definition}
@@ -32,17 +32,17 @@ The main goals of this section are to introduce the notions of depth and Krull d
   Let $\Hb$ be a ring, and let $\mathcal{N}$ be the ideal consisting of all nilpotent elements of $\Hb$. As a topological space, $\Spec \left(\Hb\right) \cong \Spec \left( \Hb / \mathcal{N} \right)$.
 \end{proposition}
 \begin{proof}
-  Prime ideals of the quotient $\Hb / I$ correspond precisely to prime ideals of $\Hb$ which contain $I$. Couple this with the fact that \[\mathcal{N} = \bigcap_{[\p] \in \Spec(\Hb)} \p\] to deduce that prime ideals of $\Hb$ correspond precisely to the prime ideals of $\Hb / \mathcal{N}$.
+  Prime ideals of the quotient $\Hb / I$ correspond precisely to prime ideals of $\Hb$ which contain $I$. One can use this with the fact that \[\mathcal{N} = \bigcap_{[\p] \in \Spec(\Hb)} \p\] to deduce that prime ideals of $\Hb$ correspond precisely to the prime ideals of $\Hb / \mathcal{N}$.
   
 \end{proof}
-\begin{corollary}
+\begin{corollary} \label{cor:hom}
   Suppose $\Hb$ is a graded-commutative ring. Let $\H^{ev} \subseteq \Hb$ be the commutative subring of all even-degree elements. As topological spaces, $\H^{ev}$ is homeomorphic to $\Hb$.
 \end{corollary}
 \begin{proof}
   By Proposition \ref{prop:reduced}, $\Spec(\H^{ev}) \cong \Spec(\H^{ev}/\mathcal{N}^{ev})$, and similarly $\Spec(\Hb) \cong \Spec(\Hb/\mathcal{N}^\bullet)$. Now apply Proposition \ref{prop:iso-2} to see $\H^{ev} / \mathcal{N}^{ev} \cong \Hb / \mathcal{N}^\bullet$ and trace the homeomorphisms to the desired result.
 \end{proof}
 
-What the above Corollary tells us that when studying purely topological questions involving $\Hb$, it suffices to investigate the same topological question involving an 
+Corollary \ref{cor:hom} tells us that when studying purely topological questions involving $\Hb$, it suffices to investigate the same topological question involving its subring of even-degree elements.
 \section{Krull Dimension}
 \label{sec:krull}
 
@@ -58,15 +58,20 @@ Let $\Hb$ be a ring. The $\Spec$ functor allows us to interpret $\Hb$ geometrica
 
 Chains of prime ideals, as in Equation \ref{eq:krull-ideals}, correspond to chains of irreducible subsets of $\Spec(\Hb)$. In the context of algebraic varieties, this corresponds to a point embedded in a curve embedded in a surface, and on to higher dimensions. In this way, Krull dimension agrees with geometric intuition.
 
-\begin{example}
+\begin{example} ~
   \begin{enumerate}
   \item When $R$ is a ring of Krull dimension $n$, $R[x]$ is a ring of Krull dimension $n+1$.
   \item A field $k$ has Krull dimension 0, so the polynomial ring $k[x_1,\ldots,x_n]$ has dimension $n$.
   \item Let $\zeta \in k[x_1,\ldots,x_n]$ be a non-constant polynomial. The ring $k[x_1,\ldots,x_n] / \left<\zeta\right>$ has Krull dimension $n-1$.
-  \item Suppose $\Hb$ is a graded-commmutative $\CC$-algebra, which is finite dimensional over $\H^0 \cong \CC$. The only prime ideal is $\H^+ = \bigoplus_{n > 0} \H^n$, so $\krdim \Hb = 0$.
   \item A principal ideal domain has dimension 1.
   \item Any Noetherian ring has finite Krull dimension.
   \end{enumerate}
+\end{example}
+
+\begin{example}
+  Suppose $\Hb$ is a graded-commmutative $\CC$-algebra, which is finite dimensional over $\H^0 \cong \CC$. The only prime ideal is $\H^+ = \bigoplus_{n > 0} \H^n$, so $\krdim \Hb = 0$.
+
+  Geometrically, graded rings correspond to cones. This fact above may be geometrically stated as \emph{the only cones with finitely many points consist of a single point.}
 \end{example}
 
 \section{Cohen Macaulay Rings}
@@ -81,7 +86,7 @@ In this section we describe rings which are of especial interest to algebraic ge
   \]
   induced by multiplication by $\zeta_i$ is injective.
 
-  The \emph{depth} of $M$ is the length of the longest regular sequence. $M$ is \emph{Cohen-Macaulay} if $\depth(M) = \krdim(M)$.  The ring $\Hb$ is \emph{Cohen-Macaulay} if it is Cohen-Macaulay as a module over itself.
+  The \emph{depth} of $M$ is the length of the longest regular sequence. A module $M$ is \emph{Cohen-Macaulay} if $\depth(M) = \krdim(M)$.  The ring $\Hb$ is \emph{Cohen-Macaulay} if it is Cohen-Macaulay as a module over itself.
 \end{definition}
 
 \begin{example}
@@ -99,9 +104,7 @@ The following proposition guides intuition when it comes to recognizing regular 
   Suppose $I = \left<\zeta_1, \ldots , \zeta_r\right>$ is an ideal in the polynomial ring  $\CC[x_1,\ldots,x_n]$. The sequence $\{\zeta_i\}_{i=1}^r$ is regular if and only if $\krdim(A/I) = n - r$.
 \end{proposition}
 
-The following is a handy way to identify Cohen-Macaulay rings:
-
-
+The following result is a handy way to identify Cohen-Macaulay rings:
 
 \begin{proposition}
   Let $\Hb$ be a finitely-generated graded-commutative $\CC$-algebra. $\Hb$ is Cohen-Macaulay if and only if there is a polynomial subring $\CC[\zeta_1,\ldots,\zeta_r] \subseteq \Hb$ generated by homogeneous elements $\zeta_i$ such that $A$ is a finitely-generated and free as a $\CC[\zeta_1,\ldots,\zeta_r]$-module.
@@ -109,9 +112,9 @@ The following is a handy way to identify Cohen-Macaulay rings:
 
 We will be primarily concerned with the actions of reductive algebraic groups on polynomial rings. The following result of Hochster-Roberts \cite{MR0347810} will be useful in the sequel.
 
-\begin{proposition}[Hochster-Roberts \cite{MR0347810}]
+\begin{theorem}[Hochster-Roberts \cite{MR0347810}]
   Let $\Hb$ be a Noetherian regular $\CC$-algebra, and $\even{G}$ a reductive linear algebraic group acting acting rationally on $\Hb$. The ring of invariants $(\Hb)^{\even{G}}$ is a Cohen-Macaulay ring.
-\end{proposition}
+\end{theorem}
 
 %%% Local Variables:
 %%% TeX-master: "../dissertation.tex"

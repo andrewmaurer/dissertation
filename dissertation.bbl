@@ -147,8 +147,13 @@ Gustav Lehrer, Daniel Nakano, and Ruibin Zhang.
 
 \bibitem[Mau17]{1711.02112}
 Andrew Maurer.
-\newblock On the finite generation of relative cohomology for lie
+\newblock On the finite generation of relative cohomology for {L}ie
   superalgebras, 2017.
+
+\bibitem[Mil15]{milneiAG}
+James~S. Milne.
+\newblock Algebraic groups (v2.00), 2015.
+\newblock Available at www.jmilne.org/math/.
 
 \bibitem[Qui71]{MR0298694}
 Daniel Quillen.
@@ -156,12 +161,12 @@ Daniel Quillen.
 \newblock {\em Ann. of Math. (2)}, 94:549--572; ibid. (2) 94 (1971), 573--602,
   1971.
 
-\bibitem[Var]{varadarajan}
+\bibitem[Var04]{varadarajan}
 V.~S. Varadarajan.
 \newblock {\em Supersymmetry for mathematicians: an introduction}, volume~11 of
   {\em Courant Lecture Notes in Mathematics}.
 \newblock New York University, Courant Institute of Mathematical Sciences, New
-  York; American Mathematical Society, Providence, RI.
+  York; American Mathematical Society, Providence, RI, 2004.
 
 \bibitem[Ven59]{MR0108788}
 Boris Venkov.

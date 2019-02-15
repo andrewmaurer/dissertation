@@ -15,36 +15,36 @@
 \contentsline {section}{\numberline {3.2}Algebraic Groups ABCs}{9}{section.3.2}
 \contentsline {section}{\numberline {3.3}Modules for Algebraic Groups}{10}{section.3.3}
 \contentsline {section}{\numberline {3.4}Reductive Algebraic Groups}{11}{section.3.4}
-\contentsline {section}{\numberline {3.5}The Lie Algebra of an Algebraic Group}{12}{section.3.5}
-\contentsline {chapter}{\numberline {4}Lie Superalgebras}{14}{chapter.4}
-\contentsline {section}{\numberline {4.1}Motivation}{14}{section.4.1}
-\contentsline {section}{\numberline {4.2}Definition and Examples}{14}{section.4.2}
-\contentsline {section}{\numberline {4.3}Classical Lie Superalgebras}{17}{section.4.3}
-\contentsline {section}{\numberline {4.4}Modules for Lie Superalgebras}{18}{section.4.4}
-\contentsline {section}{\numberline {4.5}Universal Enveloping Superalgebras}{19}{section.4.5}
-\contentsline {chapter}{\numberline {5}Relative Cohomology of Lie Superalgebras}{21}{chapter.5}
-\contentsline {section}{\numberline {5.1}Overview}{21}{section.5.1}
-\contentsline {section}{\numberline {5.2}Koszul Complex}{21}{section.5.2}
-\contentsline {section}{\numberline {5.3}Products on Cochains and Cohomology}{22}{section.5.3}
-\contentsline {section}{\numberline {5.4}Classical Results}{23}{section.5.4}
-\contentsline {section}{\numberline {5.5}Sequential realization of $\operatorname {Ext}_{(\mathfrak {g},\mathfrak {a})}^n(M,N)$}{24}{section.5.5}
-\contentsline {section}{\numberline {5.6}Computations}{25}{section.5.6}
-\contentsline {chapter}{\numberline {6}Finite Generation of Relative Cohomology}{26}{chapter.6}
-\contentsline {section}{\numberline {6.1}Motivation}{26}{section.6.1}
-\contentsline {section}{\numberline {6.2}Filtration on Cochains}{27}{section.6.2}
-\contentsline {section}{\numberline {6.3}Pages of the Spectral Sequence}{29}{section.6.3}
-\contentsline {section}{\numberline {6.4}Proof of Finite Generation}{32}{section.6.4}
-\contentsline {section}{\numberline {6.5}A Cohomology Ring of Intermediate Dimension}{34}{section.6.5}
-\contentsline {section}{\numberline {6.6}Structure of Cohomology Rings}{35}{section.6.6}
-\contentsline {subsection}{\numberline {6.6.1}Cohen-Macaulay Cohomology Rings}{35}{subsection.6.6.1}
-\contentsline {subsection}{\numberline {6.6.2}Krull Dimensions}{36}{subsection.6.6.2}
-\contentsline {chapter}{\numberline {7}Support Variety Theory}{38}{chapter.7}
-\contentsline {section}{\numberline {7.1}Motivation}{38}{section.7.1}
-\contentsline {section}{\numberline {7.2}Definition and Basic Properties}{38}{section.7.2}
-\contentsline {section}{\numberline {7.3}Natural Maps of Cohomology Varieties}{39}{section.7.3}
-\contentsline {section}{\numberline {7.4}Rank Varieties}{41}{section.7.4}
-\contentsline {section}{\numberline {7.5}}{41}{section.7.5}
-\contentsline {section}{\numberline {7.6}Realizability}{43}{section.7.6}
-\contentsline {section}{\numberline {7.7}Tensor products}{43}{section.7.7}
-\contentsline {section}{\numberline {7.8}Connectedness of support varieties}{45}{section.7.8}
-\contentsline {pseudochapter}{Bibliography}{47}{chapter*.3}
+\contentsline {section}{\numberline {3.5}The Lie Algebra of an Algebraic Group}{13}{section.3.5}
+\contentsline {chapter}{\numberline {4}Lie Superalgebras}{15}{chapter.4}
+\contentsline {section}{\numberline {4.1}Motivation}{15}{section.4.1}
+\contentsline {section}{\numberline {4.2}Definition and Examples}{15}{section.4.2}
+\contentsline {section}{\numberline {4.3}Classical Lie Superalgebras}{18}{section.4.3}
+\contentsline {section}{\numberline {4.4}Modules for Lie Superalgebras}{19}{section.4.4}
+\contentsline {section}{\numberline {4.5}Universal Enveloping Superalgebras}{20}{section.4.5}
+\contentsline {chapter}{\numberline {5}Relative Cohomology of Lie Superalgebras}{22}{chapter.5}
+\contentsline {section}{\numberline {5.1}Overview}{22}{section.5.1}
+\contentsline {section}{\numberline {5.2}Koszul Complex}{22}{section.5.2}
+\contentsline {section}{\numberline {5.3}Products on Cochains and Cohomology}{23}{section.5.3}
+\contentsline {section}{\numberline {5.4}Classical Results}{24}{section.5.4}
+\contentsline {section}{\numberline {5.5}Sequential realization of $\operatorname {Ext}_{(\mathfrak {g},\mathfrak {a})}^n(M,N)$}{25}{section.5.5}
+\contentsline {section}{\numberline {5.6}Computations}{26}{section.5.6}
+\contentsline {chapter}{\numberline {6}Finite Generation of Relative Cohomology}{27}{chapter.6}
+\contentsline {section}{\numberline {6.1}Motivation}{27}{section.6.1}
+\contentsline {section}{\numberline {6.2}Filtration on Cochains}{28}{section.6.2}
+\contentsline {section}{\numberline {6.3}Pages of the Spectral Sequence}{30}{section.6.3}
+\contentsline {section}{\numberline {6.4}Proof of Finite Generation}{33}{section.6.4}
+\contentsline {section}{\numberline {6.5}A Cohomology Ring of Intermediate Dimension}{35}{section.6.5}
+\contentsline {section}{\numberline {6.6}Structure of Cohomology Rings}{36}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}Cohen-Macaulay Cohomology Rings}{36}{subsection.6.6.1}
+\contentsline {subsection}{\numberline {6.6.2}Krull Dimensions}{37}{subsection.6.6.2}
+\contentsline {chapter}{\numberline {7}Support Variety Theory}{39}{chapter.7}
+\contentsline {section}{\numberline {7.1}Motivation}{39}{section.7.1}
+\contentsline {section}{\numberline {7.2}Definition and Basic Properties}{39}{section.7.2}
+\contentsline {section}{\numberline {7.3}Natural Maps of Cohomology Varieties}{40}{section.7.3}
+\contentsline {section}{\numberline {7.4}Rank Varieties}{42}{section.7.4}
+\contentsline {section}{\numberline {7.5}Basic Results}{42}{section.7.5}
+\contentsline {section}{\numberline {7.6}Realizability}{44}{section.7.6}
+\contentsline {section}{\numberline {7.7}Tensor products}{44}{section.7.7}
+\contentsline {section}{\numberline {7.8}Connectedness of support varieties}{46}{section.7.8}
+\contentsline {pseudochapter}{Bibliography}{48}{chapter*.3}

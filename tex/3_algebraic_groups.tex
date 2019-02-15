@@ -5,13 +5,13 @@
 
 This section's aim is to define reductive algebraic groups and introduce results important for what follows. The most relevant fact about reductive groups is Proposition \ref{prop:fg-coordinate}, which states the ring of invariants of a reductive algebraic group's action on the coordinate ring of an affine algebraic variety is finitely generated. Lie algebras are introduced as the tangent space at the identity to an affine algebraic group. Morphisms of affine algebraic groups induce morphisms of Lie algebras. This fact leads to the conclusion that group actions differentiate to Lie algebra actions.
 
-The main reference for this chapter is Humphreys \cite{MR0396773} or Jantzen \cite{MR2015057}.
+The main references for this chapter are Humphreys \cite{MR0396773} and Jantzen \cite{MR2015057}.
 
 \section{Algebraic Groups ABCs}
 \label{sec:basics-of-groups}
 
 \begin{definition}
-  An \emph{algebraic group} is a complex affine algebraic variety $G$ equipped with an identity element $e: \Spec(\CC) \to G$, multiplication morphism $m : G \times G \to G$ and an inverse morphism $i: G \to G$. These morphisms satisfy the typical group-theoretic axioms, expressed as commutative diagrams.
+  An \emph{algebraic group} over $\CC$ is a complex affine algebraic variety $G$ equipped with an identity element $e: \Spec(\CC) \to G$, multiplication morphism $m : G \times G \to G$ and an inverse morphism $i: G \to G$. These morphisms satisfy group-theoretic axioms, involving commutative diagrams, which may be found in \cite[\S 1a]{milneiAG}.
 
   An algebraic group is \emph{linear} if it is a subgroup of $\GL(n)$, the set of ivertible linear matrices.
 \end{definition}
@@ -29,7 +29,7 @@ The main reference for this chapter is Humphreys \cite{MR0396773} or Jantzen \ci
     \]
   \item The \emph{general linear group} $\GL(n)$, the set of invertible $n \times n$ matrices. When $n = 1$, we usually denote this $\GG_m = \GL(1)$, the multiplicative group $\CC^\times$.
   \item The \emph{special linear group}, $\SL(n)$, consisting of invertible matrices with determinant equal to 1.
-  \item The \emph{orthogonal matrix group} $O(n)$, consisting of invertible matrices such that $M \cdot M^T = 1$. This is not connected in the Zariski topology, as the morphism $\det: O(n) \to \CC^\times$ shows. The \emph{special orthogonal group} $SO(n) = O(n) \cap \SL(n)$ is connected.
+  \item The \emph{orthogonal matrix group} $O(n)$, consisting of invertible matrices such that \mbox{$M \cdot M^T = 1$}. This is not connected in the Zariski topology, as the morphism $\det: O(n) \to \CC^\times$ shows. The \emph{special orthogonal group} $SO(n) = O(n) \cap \SL(n)$ is connected.
   \end{enumerate}
 \end{example}
 
@@ -44,11 +44,11 @@ As in the theory of finite groups, algebraic groups are best understood through 
 
 The following are the most important examples of representations for algebraic groups.
 
-\begin{example}
+\begin{example}~
   \begin{enumerate}
   \item The trivial representation $\even{G} \to \GG_m$ defined by $g \mapsto 1$.
   \item The standard representation of $\even{G} \subseteq \GL(n)$ acts on $\CC^n$ via $g.v = g(v)$.
-  \item The determinant of a representation $\even{G} \to \GL(n) \to \GG_m$ sending $g \mapsto \rho(g) \mapsto \det(\rho(g))$.
+  \item The determinant of a representation $\even{G} \xrightarrow{\rho} \GL(n) \xrightarrow{\det} \GG_m$ sending $g \mapsto \rho(g) \mapsto \det(\rho(g))$.
   \item If $V$ is a representation of $\even{G}$, then so is $V^* = \Hom_\CC(V,\CC)$. This is via the action $g.f = f_g \in V^*$, where $f_g(v) = f(g^{-1}.v)$
   \item If $V$ is a representation, then so is $V^{\otimes m}$ via the diagonal action $g.(v_1 \otimes \ldots \otimes v_m) = g.v_1 \otimes g.v_2 \ldots \otimes g.v_m$. This action extends to $\even{G} \actson \T^\bullet(V)$.
   \item The symmetric and exterior products of a representation $V$ are again representations, with action inherited from the action on the tensor power.
@@ -60,7 +60,7 @@ The following are the most important examples of representations for algebraic g
 
 This section introduces the notion of reductivity. Reductive algebraic groups are important because they behave particularly well with respect to invariant theory, which proves to be an invaluable tool in the computation of cohomology rings for Lie superalgebras (see Chapter~\ref{chap:rel-cohom}).
 
-\begin{definition}
+\begin{definition}~
   \begin{enumerate}
   \item An element $N$ in a linear algebraic group is \emph{unipotent} if $N- I_n$ is a nilpotent matrix.
   \item The \emph{radical} of a linear algebraic group is the maximal connected, normal, solvable subgroup.
@@ -68,7 +68,8 @@ This section introduces the notion of reductivity. Reductive algebraic groups ar
   \end{enumerate}
 \end{definition}
 The previous definition is a bit obscure. To see how this acts in context, refer to the following examples in which unipotent radicals are computed for common algebraic groups.
-\begin{example}
+\filbreak
+\begin{example}~
   \begin{enumerate}
   \item Let $\even{G} = \GL(n)$. Up to conjugation, the radical of $G$ is the set of diagonal matrices, isomorphic to $\GG_m^n$. The only unipotent element in the radical is the identity. Thus, the unipotent radical of $\even{G}$ is $\{I_n\}$.
   \item Let $\even{G} = \SL(n)$. Up to conjugation, the radical is the set of diagonal matrices of determinant 1, isomorphic to $\GG_m^{n-1}$. The only unipotent element of this radical is the identity. The unipotent radical is again trivial.
@@ -120,10 +121,10 @@ This section covers a functor $\Lie$ which maps algebraic groups to their Lie al
 
 Let us introduce several important examples of Lie algebras. 
 
-\begin{example}
+\begin{example}~
   \begin{enumerate}
   \item If $\even{G}$ is an Abelian group, then $\even{\g}$ is an \emph{Abelian Lie algebra}, meaning $[x,y] = 0$ for every $x,y \in \g$.
-  \item If $\even{G} = \GL(n)$, then $\even{\g} = \gl(n)$, called the \emph{general linear Lie algebra}. As a set, $\gl(n)$ is all $n \times n$ matrices with bracket given by $[A,B] = AB - BA$.
+  \item If $\even{G} = \GL(n)$, then $\even{\g} = \gl(n)$, called the \emph{general linear Lie algebra}. As a vector space, $\gl(n)$ is all $n \times n$ matrices with bracket given by $[A,B] = AB - BA$.
   \item If $\even{G} = \SL(n)$, then $\even{\g} = \sl(n)$, called the \emph{special linear Lie algebra}. This is the Lie subalgebra of $\gl(n)$ consisting of trace zero matrices.
   \end{enumerate}
 \end{example}
